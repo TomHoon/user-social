@@ -1,0 +1,165 @@
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
+.payment-content {
+//  max-width: $max-width-container;
+//  margin: 0 auto;
+ padding: $spacing-sm 0;
+ .payment-title{
+  margin-bottom: $spacing-lg;
+ }
+ .cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: $spacing-md;
+
+  .card-item {
+   position: relative;
+
+   .card-visual {
+    background: linear-gradient(135deg, #7dd3c0 0%, #72c9b8 100%);
+    border-radius: $border-radius-lg;
+    padding: 2rem;
+    color: white;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: $shadow-md;
+
+    .card-number {
+     font-size: 1.2rem;
+     letter-spacing: 0.1rem;
+     margin-bottom: 0.5rem;
+    }
+
+    .card-last4 {
+     font-size: 2rem;
+     font-weight: 600;
+     letter-spacing: 0.2rem;
+    }
+
+    .card-footer {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-end;
+     margin-top: 2rem;
+
+     .card-expiry {
+      .expiry-label {
+       font-size: 0.9rem;
+       opacity: 0.9;
+       margin-bottom: 0.3rem;
+      }
+
+      .expiry-date {
+       font-size: 1.2rem;
+       font-weight: 600;
+      }
+     }
+
+     .card-logo {
+      background: white;
+      color: $color-primary;
+      padding: 0.4rem 0.8rem;
+      border-radius: $border-radius-sm;
+      font-size: 1rem;
+      font-weight: 700;
+     }
+    }
+   }
+
+   .delete-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+     background: rgba(255, 255, 255, 0.5);
+    }
+   }
+  }
+
+  .add-card-item {
+   border: 2px dashed $color-border;
+   border-radius: $border-radius-lg;
+   min-height: 160px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 1rem;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background: $color-bg;
+
+   &:hover {
+    border-color: $color-primary;
+    background: $color-bg-alt;
+   }
+
+   .add-card-circle {
+    width: 60px;
+    height: 60px;
+    border: 2px solid $color-border;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    .add-icon {
+     font-size: 2rem;
+     color: $color-text-secondary;
+    }
+   }
+
+   .add-card-text {
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+   }
+
+   &:hover .add-card-circle {
+    border-color: $color-primary;
+
+    .add-icon {
+     color: $color-primary;
+    }
+   }
+  }
+
+  .add-card-modal {
+   position: fixed;
+   // background: $color-bg;
+   backdrop-filter: blur(5px);
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   padding: 2rem;
+   box-shadow: $shadow-lg;
+   border-radius: $border-radius-lg;
+   z-index: 1000;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   .common-form {
+    background-color: $color-bg;
+    padding: 2rem;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-2xl;
+   }
+  }
+ }
+}

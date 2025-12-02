@@ -1,0 +1,107 @@
+@use "../../common/variables" as *;
+
+.my-profile {
+ position: relative;
+ width: 100%;
+
+ margin-top: $header-height;
+padding-top: $spacing-lg;
+ .my-profile-bg {
+  width: 100%;
+  height: 280px;
+  background: linear-gradient(135deg, #1e5a5a 0%, #f97316 35%, #fbbf24 100%);
+  background-size: cover;
+  background-position: center;
+  border-radius: $border-radius-lg;
+  position: relative;
+
+  .upload-cover-button {
+   position: absolute;
+   top: 1.5rem;
+   right: 1.5rem;
+   padding: 0.8rem 1.6rem;
+   background: rgba(125, 211, 192, 0.9);
+   color: $color-text;
+   border: none;
+   border-radius: $border-radius-md;
+   font-size: $font-size-sm;
+   font-weight: 500;
+   cursor: pointer;
+   transition: all 0.3s ease;
+
+   &:hover {
+    background: rgba(125, 211, 192, 1);
+    transform: translateY(-1px);
+   }
+  }
+ }
+
+ .my-profile-photo {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  left: 50%;
+  top: 200px;
+  transform: translateX(-50%);
+  border: 4px solid #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #7dd3c0 0%, #5fb8a8 100%);
+
+  .profile-image {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+  }
+
+  .profile-placeholder {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 4rem;
+   font-weight: 700;
+   color: white;
+  }
+
+  .edit-photo-button {
+   position: absolute;
+   bottom: 8px;
+   right: 8px;
+   width: 36px;
+   height: 36px;
+   background: #ff6b6b;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+   transition: all 0.3s ease;
+
+   &:hover {
+    background: #ff5252;
+    transform: scale(1.1);
+   }
+  }
+ }
+
+ .profile-info {
+  text-align: center;
+  margin-top: 5rem;
+
+  .profile-name {
+   font-size: 2rem;
+   font-weight: 700;
+   color: $color-text;
+   margin-bottom: 0.5rem;
+  }
+
+  .profile-email {
+   font-size: $font-size-base;
+   color: $color-text-secondary;
+  }
+ }
+}

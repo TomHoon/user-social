@@ -1,0 +1,86 @@
+@use "../../common/variables" as *;
+
+.search-header {
+ background: $color-bg;
+ border-bottom: 1px solid $color-border;
+ padding: 1rem 2rem;
+
+ .search-header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  .logo {
+   flex-shrink: 0;
+
+   a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $color-text;
+    text-decoration: none;
+   }
+  }
+
+  .search-filters {
+   flex: 1;
+   display: flex;
+   gap: 1rem;
+   align-items: flex-end;
+
+   .filter-group {
+    flex: 1;
+
+    label {
+     display: block;
+     font-size: $font-size-sm;
+     color: $color-text-secondary;
+     margin-bottom: 0.5rem;
+    }
+
+    input,
+    select {
+     width: 100%;
+     padding: 0.8rem;
+     border: 1px solid $color-border;
+     border-radius: $border-radius-md;
+     font-size: $font-size-base;
+    }
+   }
+
+   .search-button {
+    padding: 0.8rem 1.6rem;
+    background: $color-primary;
+    color: white;
+    border: none;
+    border-radius: $border-radius-md;
+    cursor: pointer;
+    font-size: 1.6rem;
+   }
+  }
+
+  .header-actions {
+   display: flex;
+   gap: 1rem;
+   align-items: center;
+
+   .action-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: $color-text;
+   }
+
+   .user-profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+   }
+  }
+ }
+}

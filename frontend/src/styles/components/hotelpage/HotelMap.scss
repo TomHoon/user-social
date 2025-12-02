@@ -1,0 +1,7 @@
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
+
+.hotel-map {
+ // 호텔 지도 스타일
+     padding: $spacing-section 0 0;
+}

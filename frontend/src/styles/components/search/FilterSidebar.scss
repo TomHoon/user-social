@@ -1,0 +1,54 @@
+@use "../../common/variables" as *;
+
+.filter-sidebar {
+ width: 280px;
+ flex-shrink: 0;
+ background: $color-bg;
+ border: 1px solid $color-border;
+ border-radius: $border-radius-lg;
+ padding: 2rem;
+ height: fit-content;
+ position: sticky;
+ top: 2rem;
+
+ .filter-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+ }
+
+ .filter-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid $color-border;
+
+  &:last-child {
+   border-bottom: none;
+  }
+
+  .section-title {
+   font-size: $font-size-base;
+   font-weight: 600;
+   margin-bottom: 1rem;
+  }
+
+  .filter-checkbox {
+   display: flex;
+   align-items: center;
+   gap: 0.8rem;
+   margin-bottom: 0.8rem;
+   cursor: pointer;
+
+   input[type="checkbox"] {
+    width: 1.6rem;
+    height: 1.6rem;
+   }
+  }
+
+  .price-display {
+   margin-top: 0.5rem;
+   font-size: $font-size-sm;
+   color: $color-text-secondary;
+  }
+ }
+}

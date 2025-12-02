@@ -1,0 +1,7 @@
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
+
+.hotel-detail-container.inner{
+  margin-top: $header-height;
+  padding-top:$gutter-lg;
+}

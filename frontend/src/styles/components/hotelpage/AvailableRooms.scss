@@ -1,0 +1,51 @@
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
+.available-rooms {
+ display: flex;
+ flex-direction: column;
+     padding: $spacing-section 0 0;
+ gap: $gutter-lg;
+ // 예약 가능한 객실 스타일
+ .room-card {
+  display: flex;
+  gap: $gutter-md;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  border-bottom: $border;
+  padding-bottom: $gutter-lg;
+  .left {
+    display: flex;
+    gap:$gutter-md;
+    align-items: center;
+   .img-wrap {
+    width: 10rem;
+    overflow: hidden;
+    border-radius: $border-radius-sm;
+   }
+   .room-name {
+    font-size: $font-size-lg;
+    font-weight: 600;
+    color: $color-text;
+    margin-bottom: $gutter-sm;
+   }
+   .room-type {
+    font-size: $font-size-lg;
+    flex: 2;
+   }
+  }
+  .right {
+    display: flex;
+    align-items: center;
+    gap: $gutter-md;
+    .room-price {
+     font-size: $font-size-xl;
+     font-weight: 700;
+     color: $color-primary;
+    }
+    .btn {
+    //  @include button-style;
+    }
+  }
+ }
+}

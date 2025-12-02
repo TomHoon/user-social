@@ -1,0 +1,135 @@
+@use "../../common/variables" as *;
+
+.account-page {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 2rem;
+
+ .account-tabs {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 2px solid $color-border;
+  margin-bottom: 3rem;
+
+  .tab-button {
+   background: none;
+   border: none;
+   padding: 1rem 0;
+   font-size: $font-size-base;
+   color: $color-text-secondary;
+   cursor: pointer;
+   position: relative;
+   transition: color 0.3s ease;
+
+   &.active {
+    color: $color-primary;
+    font-weight: 600;
+
+    &::after {
+     content: "";
+     position: absolute;
+     bottom: -2px;
+     left: 0;
+     right: 0;
+     height: 2px;
+     background: $color-primary;
+    }
+   }
+
+   &:hover {
+    color: $color-primary;
+   }
+  }
+ }
+
+ .account-content {
+  margin-bottom: 4rem;
+
+  .account-title {
+   font-size: 2.4rem;
+   font-weight: 700;
+   color: $color-text;
+   margin-bottom: 3rem;
+  }
+
+  .account-form {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+
+   .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    .field-label {
+     font-size: $font-size-sm;
+     color: $color-text-secondary;
+     font-weight: 500;
+    }
+
+    .field-input-wrapper {
+     display: flex;
+     gap: 1rem;
+     align-items: center;
+
+     .field-input {
+      flex: 1;
+      padding: 1.2rem 1.6rem;
+      border: 1px solid $color-border;
+      border-radius: $border-radius-md;
+      font-size: $font-size-base;
+      color: $color-text;
+      background: $color-bg;
+
+      &:disabled {
+       background: $color-bg-alt;
+       color: $color-text-muted;
+      }
+
+      &:focus {
+       outline: none;
+       border-color: $color-primary;
+      }
+     }
+
+     .change-button {
+      padding: 1rem 2rem;
+      background: $color-bg;
+      border: 1px solid $color-border;
+      border-radius: $border-radius-md;
+      font-size: $font-size-sm;
+      color: $color-text;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+
+      &:hover {
+       background: $color-bg-alt;
+       border-color: $color-primary;
+      }
+     }
+    }
+   }
+  }
+ }
+
+ .subscription-section {
+  padding: 4rem;
+  background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+  border-radius: $border-radius-lg;
+  text-align: center;
+
+  .subscription-title {
+   font-size: 2rem;
+   font-weight: 700;
+   color: $color-text;
+   margin-bottom: 0.5rem;
+  }
+
+  .subscription-subtitle {
+   font-size: $font-size-base;
+   color: $color-text-secondary;
+  }
+ }
+}

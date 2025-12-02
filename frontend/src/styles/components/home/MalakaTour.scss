@@ -1,0 +1,82 @@
+@use "../../common/variables";
+@use "../../common/mixins";
+
+.malaka-tour {
+ background: linear-gradient(135deg, #a8e6cf, #88d8a3);
+ border-radius: 20px;
+ padding: 40px;
+ color: white;
+ flex: 1;
+ min-height: 400px;
+ display: flex;
+ align-items: center;
+
+ .tour-content {
+  width: 100%;
+
+  .tour-title {
+   font-size: 2.5rem;
+   font-weight: bold;
+   margin-bottom: 20px;
+   line-height: 1.2;
+  }
+
+  .tour-price {
+   margin-bottom: 30px;
+
+   .price-label {
+    font-size: 1rem;
+    opacity: 0.9;
+    display: block;
+    margin-bottom: 5px;
+   }
+
+   .price-amount {
+    font-size: 3rem;
+    font-weight: bold;
+   }
+  }
+
+  .tour-description {
+   line-height: 1.6;
+   margin-bottom: 30px;
+   opacity: 0.95;
+   font-size: 0.95rem;
+  }
+
+  .book-flight-btn {
+   background: white;
+   color: #88d8a3;
+   border: none;
+   padding: 15px 30px;
+   border-radius: 10px;
+   font-size: 1.1rem;
+   font-weight: 600;
+   cursor: pointer;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+   &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+   }
+  }
+ }
+
+ @media (max-width: 768px) {
+  padding: 30px 20px;
+
+  .tour-content {
+   .tour-title {
+    font-size: 2rem;
+   }
+
+   .tour-price .price-amount {
+    font-size: 2.5rem;
+   }
+
+   .tour-description {
+    font-size: 0.9rem;
+   }
+  }
+ }
+}

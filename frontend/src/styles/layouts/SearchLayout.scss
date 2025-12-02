@@ -1,0 +1,26 @@
+@use "../common/variables" as *;
+
+.search-container {
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+ background: $color-bg-alt;
+ margin-top: $header-height;
+ padding-top: $spacing-lg;
+
+.search-content{
+    display: flex;
+    margin-top: $spacing-lg;
+    gap: $spacing-lg;
+    .filter-sidebar{
+    flex: 1;
+    }
+    .search-main {
+        flex:3
+    }
+}
+ .search-form{
+    transform: translateY(0);
+ }
+ }
+

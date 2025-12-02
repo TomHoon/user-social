@@ -1,0 +1,78 @@
+@use "../../common/variables";
+@use "../../common/mixins";
+
+.travel-gallery {
+ flex: 1;
+
+ .gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  height: 400px;
+  justify-content: space-between;
+
+  .gallery-item {
+   width: 48%;
+   height: 48%;
+   position: relative;
+   border-radius: 15px;
+   background-size: cover;
+   background-position: center;
+   overflow: hidden;
+   cursor: pointer;
+   transition: transform 0.3s ease;
+
+   &:hover {
+    transform: scale(1.02);
+   }
+
+   .gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+   }
+
+   &:hover .gallery-overlay {
+    background: rgba(0, 0, 0, 0.2);
+   }
+
+   &.travel-image-1 {
+    background-image: url("/images/travel-1.jpg");
+   }
+
+   &.travel-image-2 {
+    background-image: url("/images/travel-2.jpg");
+   }
+
+   &.travel-image-3 {
+    min-height: 160px;
+    background-image: url("/images/travel-3.jpg");
+   }
+
+   &.travel-image-4 {
+    background-image: url("/images/travel-4.jpg");
+   }
+  }
+ }
+
+ @media (max-width: 768px) {
+  .gallery-grid {
+   grid-template-columns: 1fr;
+   height: auto;
+   gap: 10px;
+
+   .gallery-item {
+    min-height: 150px !important;
+
+    &.travel-image-1,
+    &.travel-image-4 {
+     grid-column: 1;
+    }
+   }
+  }
+ }
+}

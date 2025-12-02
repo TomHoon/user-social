@@ -1,0 +1,273 @@
+@use "../../common/variables" as *;
+
+.bookings-page {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 2rem;
+
+ .bookings-tabs {
+  display: flex;
+  gap: 2rem;
+  border-bottom: 2px solid $color-border;
+  margin-bottom: 3rem;
+
+  .tab-button {
+   background: none;
+   border: none;
+   padding: 1rem 0;
+   font-size: $font-size-base;
+   color: $color-text-secondary;
+   cursor: pointer;
+   position: relative;
+   transition: color 0.3s ease;
+
+   &.active {
+    color: $color-primary;
+    font-weight: 600;
+
+    &::after {
+     content: "";
+     position: absolute;
+     bottom: -2px;
+     left: 0;
+     right: 0;
+     height: 2px;
+     background: $color-primary;
+    }
+   }
+
+   &:hover {
+    color: $color-primary;
+   }
+  }
+ }
+
+ .bookings-content {
+  .bookings-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 2rem;
+
+   .bookings-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: $color-text;
+   }
+
+   .filter-dropdown {
+    select {
+     padding: 0.8rem 2rem 0.8rem 1.2rem;
+     border: 1px solid $color-border;
+     border-radius: $border-radius-md;
+     font-size: $font-size-base;
+     color: $color-text;
+     background: $color-bg;
+     cursor: pointer;
+     appearance: none;
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+     background-position: right 0.5rem center;
+     background-repeat: no-repeat;
+     background-size: 1.5rem;
+
+     &:focus {
+      outline: none;
+      border-color: $color-primary;
+     }
+    }
+   }
+  }
+
+  .bookings-list {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+
+   .booking-card {
+    display: flex;
+    gap: 2rem;
+    padding: 2rem;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-lg;
+    background: $color-bg;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+     box-shadow: $shadow-md;
+    }
+
+    .booking-image {
+     flex-shrink: 0;
+     width: 120px;
+     height: 120px;
+
+     .image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: $border-radius-md;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 1.4rem;
+     }
+    }
+
+    .booking-details {
+     flex: 1;
+     display: flex;
+     gap: 2rem;
+     align-items: center;
+
+     .detail-group {
+      label {
+       display: block;
+       font-size: $font-size-sm;
+       color: $color-text-secondary;
+       margin-bottom: 0.5rem;
+      }
+
+      .date {
+       font-size: $font-size-base;
+       font-weight: 600;
+       color: $color-text;
+       margin-bottom: 0.5rem;
+      }
+
+      .time-group {
+       display: flex;
+       align-items: center;
+       gap: 0.5rem;
+
+       .time-label {
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+       }
+
+       .time {
+        font-size: $font-size-sm;
+        color: $color-text;
+       }
+      }
+     }
+
+     .divider {
+      font-size: 2rem;
+      color: $color-text-muted;
+     }
+
+     .status-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-left: auto;
+
+      .status-item {
+       display: flex;
+       align-items: center;
+       gap: 0.8rem;
+
+       .status-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+
+        &.arrival {
+         background: #10b981;
+        }
+
+        &.departure {
+         background: #8b5cf6;
+        }
+       }
+
+       .status-label {
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+       }
+
+       .status-value {
+        font-size: $font-size-sm;
+        color: $color-text;
+        font-weight: 500;
+       }
+      }
+     }
+    }
+
+    .booking-actions {
+     display: flex;
+     flex-direction: column;
+     gap: 1rem;
+     align-items: flex-end;
+
+     .btn-download {
+      padding: 0.8rem 1.6rem;
+      background: #10b981;
+      color: white;
+      border: none;
+      border-radius: $border-radius-md;
+      font-size: $font-size-sm;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+
+      &:hover {
+       background: #059669;
+      }
+     }
+
+     .btn-detail {
+      width: 36px;
+      height: 36px;
+      background: $color-bg;
+      border: 1px solid $color-border;
+      border-radius: 50%;
+      font-size: 1.8rem;
+      color: $color-text-secondary;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+
+      &:hover {
+       border-color: $color-primary;
+       color: $color-primary;
+      }
+     }
+    }
+   }
+  }
+ }
+}
+
+@media (max-width: 768px) {
+ .bookings-page {
+  .bookings-content {
+   .bookings-list {
+    .booking-card {
+     flex-direction: column;
+
+     .booking-details {
+      flex-direction: column;
+      align-items: flex-start;
+
+      .status-group {
+       margin-left: 0;
+      }
+     }
+
+     .booking-actions {
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+     }
+    }
+   }
+  }
+ }
+}

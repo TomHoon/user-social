@@ -1,0 +1,22 @@
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
+
+.hotel-reviews {
+ // 호텔 리뷰 스타일
+ padding: $spacing-section 0;
+ .dep {
+  display: flex;
+  justify-content: space-between;
+ }
+ .review-list {
+  li {
+   display: flex;
+   box-shadow: $shadow-sm;
+   padding: $spacing-lg;
+   margin-bottom: $spacing-md;
+   border-radius: $border-radius-sm;
+   gap: $spacing-md;
+  }
+//   margin-top: $spacing-lg;
+ }
+}

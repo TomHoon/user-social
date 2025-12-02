@@ -1,0 +1,43 @@
+@use "../../common/variables" as *;
+
+.site-header {
+ .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: $border;
+  height: 8rem;
+  position: relative;
+
+  .user-menu {
+   position: relative;
+   .user-button {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    cursor: pointer;
+
+    .user-avatar-placeholder {
+     cursor: pointer;
+     width: 4rem;
+     height: 4rem;
+     border-radius: 50%;
+     // background: $color-bg-secondary;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.8rem;
+     color: $color-text-secondary;
+     border: $border-light;
+    }
+   }
+   .dropdown-menu {
+    position: absolute;
+    bottom: -10rem;
+    width: 100%;
+    right: 0;
+    background-color: $color-bg;
+   }
+  }
+ }
+}
