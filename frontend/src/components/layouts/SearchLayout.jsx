@@ -25,7 +25,7 @@ const SearchLayout = () => {
  };
 
  return (
-  <div className="search-layout">
+  <section className="search-layout">
    <Header />
    <div className="search-container">
     <SearchFilterWrap filters={filters} onFilterChange={handleFilterChange} />
@@ -36,7 +36,7 @@ const SearchLayout = () => {
      </main>
     </div>
    </div>
-  </div>
+  </section>
  );
 };
 

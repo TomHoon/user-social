@@ -5,7 +5,8 @@ import MyPageLayout from "./components/layouts/MyPageLayout";
 import SearchLayout from "./components/layouts/SearchLayout";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 import AddPaymentPage from "./pages/payment/AddPaymentPage";
-
+import HotelPageLayout from "./components/layouts/HotelPageLayout";
+import BookingLayout from "./components/layouts/BookingLayout";
 // pages
 import HomePage from "./pages/home/HomePage";
 import SearchPage from "./pages/search/SearchPage";
@@ -51,20 +52,20 @@ const AppRouter = () => {
     {/* main landing */}
     <Route path="/" element={<MainLayout />}>
      <Route index element={<HomePage />} />
-     {/* 호텔 리스트 */}
-     <Route path="hotels">
-      <Route index element={<HotelListPage />} />
-      <Route path=":hotelId" element={<HotelDetailPage />} />
-     </Route>
     </Route>
 
+    <Route path="hotels" element={<HotelPageLayout />}>
+     {/* 호텔 리스트 */}
+      <Route index element={<HotelListPage />} />
+      <Route path=":hotelId" element={<HotelDetailPage />} />
+    </Route>
     {/* 검색 레이아웃 */}
     <Route element={<SearchLayout />}>
      <Route path="search" element={<SearchPage />} />
     </Route>
 
     {/* 예약 플로우 - 로그인 필요 */}
-    <Route path="/" element={<MainLayout />}>
+    <Route path="/" element={<BookingLayout />}>
      <Route
       path="booking/:hotelId"
       element={

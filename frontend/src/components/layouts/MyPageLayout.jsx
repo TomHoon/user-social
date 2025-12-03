@@ -6,7 +6,7 @@ import MyProfile from "../mypage/MyProfile";
 
 const MyPageLayout = () => {
  return (
-  <div className="mypage-layout ">
+  <section className="mypage-layout ">
    <Header />
 
    <div className="hero inner">
@@ -20,7 +20,7 @@ const MyPageLayout = () => {
    </div>
 
    <Footer />
-  </div>
+  </section>
  );
 };
 

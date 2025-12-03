@@ -25,8 +25,8 @@ const HotelListCards = ({ hotels = [] }) => {
           }}
         >
           <div className="hotel-image">
-            <img src={hotel.image} alt={hotel.name} />
-            <div className="image-count">{hotel.imageCount} images</div>
+            <img src={hotel.images[0]} alt={hotel.name} />
+            <div className="image-count">{hotel.images.length} images</div>
           </div>
 
           <div className="hotel-info">

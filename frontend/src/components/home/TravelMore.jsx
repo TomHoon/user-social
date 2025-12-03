@@ -5,17 +5,19 @@ import "../../styles/components/home/TravelMore.scss";
 
 const TravelMore = () => {
  return (
-  <section className="travel-more">
-   <div className="container">
+  <section className="container travel-more">
+   <div className="inner">
     <div className="section-header">
-     <h2 className="section-title">여행 더보기</h2>
-     <button className="see-all-btn">See All</button>
+     <div className="tit">
+      <h2 className="section-title">여행 더보기</h2>
+      <p className="section-subtitle">
+       Going somewhere to celebrate this season? Whether you're going home or
+       somewhere to roam, we've got the travel tools to get you to your
+       destination.
+      </p>
+     </div>
+     <button className="btn">See All</button>
     </div>
-    <p className="section-subtitle">
-     Going somewhere to celebrate this season? Whether you're going home or
-     somewhere to roam, we've got the travel tools to get you to your
-     destination.
-    </p>
 
     <div className="travel-content">
      <MalakaTour />

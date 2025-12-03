@@ -1,10 +1,10 @@
+import React from 'react'
 import { Outlet } from "react-router-dom";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
-
-const MainLayout = () => {
+const BookingLayout = () => {
   return (
-    <section className="main-layout">
+      <section className="booking-layout">
       <Header  />
 
       <main>
@@ -13,7 +13,7 @@ const MainLayout = () => {
 
       <Footer />
     </section>
-  );
-};
+  )
+}
 
-export default MainLayout;
+export default BookingLayout
