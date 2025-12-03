@@ -10,7 +10,7 @@
   // padding: 0 $gutter;
 }
 .top-container {
-  padding-top: $header-height;
+  // padding-top: $header-height;
 }
 h1,
 h2,
@@ -47,8 +47,9 @@ h3 {
 }
 header {
   height: $header-height;
-  background: $color-bg;
-  border-bottom: $border;
+  // background: $color-bg;
+    // backdrop-filter: blur(10rem);
+  // background-color: #ffffff70;
   position: fixed;
   top: 0;
   left: 0;
@@ -60,5 +61,31 @@ header {
     height: 100%;
     max-width: $max-width-container;
     margin: 0 auto;
+    border-bottom: $border-light;
+  }
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+
+  h2 {
+    font-size: $font-size-xl;
+    font-weight: bold;
+    margin-bottom: $spacing-xs;
+  }
+
+  .btn-see-all {
+    // background: none;
+    // border: none;
+    // color: $color-primary;
+    // font-size: $font-size-base;
+    // font-weight: 600;
+    // cursor: pointer;
+
+    // &:hover {
+    //   text-decoration: underline;
+    // }
   }
 }

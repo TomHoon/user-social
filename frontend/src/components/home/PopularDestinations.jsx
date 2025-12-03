@@ -13,9 +13,12 @@ const PopularDestinations = () => {
     <section className="container">
       <div className="inner">
         <div className="section-header">
-          <h2>어떻게 빠지다</h2>
+          <div className="tit">
+
+          <h2>여행에 빠지다</h2>
           <p>최고의호주로 여행놓은 드롭을 생애에빠뜨440</p>
-          <button className="btn-see-all">See All</button>
+          </div>
+          <button className="btn-see-all btn">See All</button>
         </div>
 
         <Swiper
@@ -23,7 +26,7 @@ const PopularDestinations = () => {
           spaceBetween={20}
           slidesPerView={4}
           navigation
-          pagination={{ clickable: true }}
+          // pagination={{ clickable: true }}
           breakpoints={{
             320: { slidesPerView: 1, spaceBetween: 15 },
             640: { slidesPerView: 2, spaceBetween: 15 },
@@ -34,7 +37,7 @@ const PopularDestinations = () => {
         >
           {mockDestinations.map((destination,i) => (
             <SwiperSlide key={i}>
-              <DestinationCard destination={destination} />
+              <DestinationCard destination={destination}/>
             </SwiperSlide>
           ))}
         </Swiper>

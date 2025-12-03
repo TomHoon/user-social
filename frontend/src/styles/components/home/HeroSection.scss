@@ -12,9 +12,9 @@
   transform: translate(-50%,-50%);
  }
  .hero-swiper {
-  height: clamp(50rem, 80vh, 70rem);
-  .swiper-slide {
-   // height: 100vh;
+   height: clamp(60rem, 80vh, 100vh);
+   .swiper-slide {
+    // height: 100%;
   }
 
   // Pagination 커스텀 스타일
@@ -22,15 +22,18 @@
    bottom: 2rem;
 
    .swiper-pagination-bullet {
-    width: 1.2rem;
-    height: 1.2rem;
-    background: rgba(255, 255, 255, 0.5);
-    opacity: 1;
-    transition: all 0.3s ease;
-
-    &.swiper-pagination-bullet-active {
-     background: white;
-     transform: scale(1.2);
+    //  width: .3rem;
+     width: 10rem;
+     height: .3rem;
+     margin: 0 $gutter-sm;
+     
+     background: rgba(255, 255, 255, 0.2);
+     opacity: 1;
+     transition: all 0.3s ease;
+     border-radius: 0;
+     
+     &.swiper-pagination-bullet-active {
+      background: white;
     }
    }
   }

@@ -9,12 +9,12 @@
     margin: 0 auto;
     padding:$spacing-section 0;
   }
-
-
+  
+  
   // 반응형 디자인
   @media (max-width: 76.8rem) {
     .container {
-      padding: 0 1.5rem;
+      padding:$spacing-xxxl $spacing-sm;
     }
   }
 }

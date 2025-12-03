@@ -2,3 +2,79 @@
 @use "../../common/mixins" as *;
 
 // PopularDestinations 스타일 작성
+.destination-card {
+  background-size: cover;
+  background-position: center;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  box-shadow: $shadow-md;
+  height: clamp(23rem, 35rem, 45rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  .card-image {
+    // img {
+    //   width: 100%;
+    //   height: 100%;
+    //   object-fit: cover;
+    // }
+  }
+
+  .card-content {
+    background: rgba(0, 0, 0, 0.2);
+    padding: $spacing-md;
+    backdrop-filter: blur(3rem);
+    transition: all 0.3s ease;
+    transform: translateY(100%);
+    // text-align: center;
+    .card-top{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+    .destination-name {
+      font-size: $font-size-xl;
+      font-weight: bold;
+      margin-bottom: $spacing-xs;
+    }
+
+    .destination-country {
+      // font-size: $font-size-md;
+      opacity: 0.9;
+      margin-bottom: $spacing-sm;
+    }
+    .destination-description {
+      font-size: $font-size-sm;
+      opacity: 0.8;
+    } 
+    .card-footer{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      gap: $spacing-sm;
+      .destination-price {
+        font-size: $font-size-lg;
+        font-weight: 600;
+        color:$color-warning-light;
+        margin: $spacing-sm 0;
+      }
+
+    }
+  }
+  .btn {
+    // position: absolute;
+    // top: $spacing-md;
+    // right: $spacing-md;
+  }
+  &:hover{
+    .card-content {
+      transform: translateY(0);
+    }
+  }
+} 
