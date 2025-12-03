@@ -31,6 +31,7 @@ db.hotels.insertMany([
   owner: ownerId,
   status: "approved",
   tags: ["럭셔리", "비즈니스"],
+  featured: true,
  },
  {
   name: "해운대 그랜드 호텔",
@@ -51,6 +52,7 @@ db.hotels.insertMany([
   owner: ownerId,
   status: "approved",
   tags: ["오션뷰", "가족여행"],
+  featured: true,
  },
  {
   name: "제주 신라호텔",
@@ -71,6 +73,7 @@ db.hotels.insertMany([
   owner: ownerId,
   status: "approved",
   tags: ["럭셔리", "리조트", "신혼여행"],
+  featured: true,
  },
 ]);
 

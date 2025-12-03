@@ -1,40 +1,25 @@
 import React from "react";
 import "../../styles/components/home/TravelGallery.scss";
 
-const TravelGallery = () => {
- const galleryImages = [
-  {
-   id: 1,
-   image: "/images/travel-1.jpg",
-   className: "travel-image-1",
-  },
-  {
-   id: 2,
-   image: "/images/travel-2.jpg",
-   className: "travel-image-2",
-  },
-  {
-   id: 3,
-   image: "/images/travel-3.jpg",
-   className: "travel-image-3",
-  },
-  {
-   id: 4,
-   image: "/images/travel-4.jpg",
-   className: "travel-image-4",
-  },
- ];
+const TravelGallery = ({ hotels }) => {
+ console.log(hotels);
+
+ // 2번째부터 5번째 항목까지만 표시 (인덱스 1~4)
+ const displayHotels = hotels.slice(1, 5);
 
  return (
   <div className="travel-gallery">
    <div className="gallery-grid">
-    {galleryImages.map((item) => (
+    {displayHotels.map((item) => (
      <div
       key={item.id}
-      className={`gallery-item ${item.className}`}
-      style={{ backgroundImage: `url(${item.image})` }}
+      className={`gallery-item ${item.className || ""}`}
+      style={{ backgroundImage: `url(${item.images?.[0] || ""})` }}
      >
-      <div className="gallery-overlay"></div>
+      <div className="gallery-overlay">
+       <h4>{item.name}</h4>
+       <p>{item.city}</p>
+      </div>
      </div>
     ))}
    </div>
