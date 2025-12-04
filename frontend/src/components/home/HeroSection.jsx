@@ -19,7 +19,7 @@ const HeroSection = () => {
       description:
         "컴퓨터를 통해 유용한 예약과 고객 사을 지원 부웅\n함한 북시즈 확인하세요.",
       backgroundImage:
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&h=1080&fit=crop",
+        "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       className: "hero-card-1",
     },
     {

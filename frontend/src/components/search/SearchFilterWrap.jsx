@@ -1,28 +1,54 @@
 import "../../styles/components/search/SearchFilterWrap.scss";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { ko } from "date-fns/locale";
 import { useNavigate } from "react-router-dom";
-const SearchFilterWrap = () => {
+
+const SearchFilterWrap = ({ filters, onFilterChange }) => {
  const navigate = useNavigate();
- const [destination, setDestination] = useState("");
- const [dateRange, setDateRange] = useState([null, null]);
+ const [destination, setDestination] = useState(filters?.destination || "");
+ const [dateRange, setDateRange] = useState([
+  filters?.checkIn ? new Date(filters.checkIn) : null,
+  filters?.checkOut ? new Date(filters.checkOut) : null,
+ ]);
  const [startDate, endDate] = dateRange;
- const [guests, setGuests] = useState(2);
+ const [guests, setGuests] = useState(parseInt(filters?.guests) || 2);
  const [showGuestPicker, setShowGuestPicker] = useState(false);
+
+ useEffect(() => {
+  if (filters) {
+   setDestination(filters.destination || "");
+   setGuests(parseInt(filters.guests) || 2);
+   if (filters.checkIn && filters.checkOut) {
+    setDateRange([new Date(filters.checkIn), new Date(filters.checkOut)]);
+   }
+  }
+ }, [filters]);
 
  const incrementGuests = () => setGuests((prev) => Math.min(prev + 1, 10));
  const decrementGuests = () => setGuests((prev) => Math.max(prev - 1, 1));
 
  const handleSearch = () => {
+  const newFilters = {
+   destination,
+   checkIn: startDate?.toISOString() || "",
+   checkOut: endDate?.toISOString() || "",
+   guests: guests.toString(),
+  };
+
+  if (onFilterChange) {
+   onFilterChange(newFilters);
+  }
+
+  // URL 파라미터 업데이트 (선택사항)
   const params = new URLSearchParams();
   if (destination) params.append("destination", destination);
   if (startDate) params.append("checkIn", startDate.toISOString());
   if (endDate) params.append("checkOut", endDate.toISOString());
   params.append("guests", guests);
 
-  navigate(`/search?${params.toString()}`);
+  window.history.replaceState(null, "", `/search?${params.toString()}`);
  };
  return (
   <div className="search-form inner">

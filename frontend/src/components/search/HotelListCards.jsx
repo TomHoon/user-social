@@ -4,7 +4,7 @@ import "../../styles/components/search/HotelListCards.scss";
 
 const HotelListCards = ({ hotels = [] }) => {
   const navigate = useNavigate();
-  console.log("HotelListCards received hotels:", hotels);
+  // console.log("HotelListCards received hotels:", hotels);
 
   if (!hotels || hotels.length === 0) {
     return (

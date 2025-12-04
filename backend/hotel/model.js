@@ -6,6 +6,11 @@ const hotelSchema = new Schema(
  {
   name: { type: String, required: true, trim: true },
   description: { type: String, trim: true },
+  type: {
+   type: String,
+   enum: ["hotel", "motel", "resort"],
+   default: "hotel",
+  },
   city: { type: String, required: true, trim: true },
   address: { type: String, trim: true },
   location: { type: String, trim: true },
@@ -14,6 +19,12 @@ const hotelSchema = new Schema(
   ratingAverage: { type: Number, default: 0, min: 0, max: 5 },
   ratingCount: { type: Number, default: 0 },
   owner: { type: Schema.Types.ObjectId, ref: "User", required: true },
+  freebies: {
+   breakfast: { type: Boolean, default: false },
+   airportPickup: { type: Boolean, default: false },
+   wifi: { type: Boolean, default: false },
+   customerSupport: { type: Boolean, default: false },
+  },
   status: {
    type: String,
    enum: ["pending", "approved", "rejected"],
