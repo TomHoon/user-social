@@ -47,6 +47,8 @@ export const getFeaturedHotels = async (limit = 10) => {
  return response.data;
 };
 
+
+
 export default {
  getHotels,
  getHotelDetail,

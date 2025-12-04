@@ -1,82 +1,84 @@
-@use "../../common/variables";
-@use "../../common/mixins";
+@import "../../common/variables";
+@import "../../common/mixins";
 
 .malaka-tour {
- background: linear-gradient(135deg, #a8e6cf, #88d8a3);
- border-radius: 20px;
- padding: 40px;
- color: white;
- flex: 1;
- min-height: 400px;
- display: flex;
- align-items: center;
+  // background: linear-gradient(135deg, #a8e6cf, #88d8a3);
+  border-radius: $border-radius-lg;
+  padding: $spacing-xxl;
+  color: $color-text-light;
+  flex: 1;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
 
- .tour-content {
-  width: 100%;
-
-  .tour-title {
-   font-size: 2.5rem;
-   font-weight: bold;
-   margin-bottom: 20px;
-   line-height: 1.2;
-  }
-
-  .tour-price {
-   margin-bottom: 30px;
-
-   .price-label {
-    font-size: 1rem;
-    opacity: 0.9;
-    display: block;
-    margin-bottom: 5px;
-   }
-
-   .price-amount {
-    font-size: 3rem;
-    font-weight: bold;
-   }
-  }
-
-  .tour-description {
-   line-height: 1.6;
-   margin-bottom: 30px;
-   opacity: 0.95;
-   font-size: 0.95rem;
-  }
-
-  .book-flight-btn {
-   background: white;
-   color: #88d8a3;
-   border: none;
-   padding: 15px 30px;
-   border-radius: 10px;
-   font-size: 1.1rem;
-   font-weight: 600;
-   cursor: pointer;
-   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-   &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-   }
-  }
- }
-
- @media (max-width: 768px) {
-  padding: 30px 20px;
 
   .tour-content {
-   .tour-title {
-    font-size: 2rem;
-   }
+    width: 100%;
 
-   .tour-price .price-amount {
-    font-size: 2.5rem;
-   }
 
-   .tour-description {
-    font-size: 0.9rem;
-   }
+    .tour-title {
+      font-size: $font-size-section-subtitle;
+      font-weight: $font-weight-bold;
+      margin-bottom: $spacing-lg;
+      line-height: $line-height-tight;
+    }
+
+    .tour-price {
+      margin-bottom: $spacing-xxl;
+
+      .price-label {
+        font-size: $font-size-base;
+        opacity: 0.9;
+        display: block;
+        margin-bottom: $spacing-xs;
+      }
+
+      .price-amount {
+        font-size: $font-size-4xl;
+        font-weight: $font-weight-bold;
+      }
+    }
+
+    .tour-description {
+      line-height: $line-height-base;
+      margin-bottom: $spacing-xxl;
+      opacity: 0.95;
+      font-size: $font-size-sm;
+    }
+
+    .book-flight-btn {
+      background: $color-text-light;
+      color: #88d8a3;
+      border: none;
+      padding: $spacing-md $spacing-xxl;
+      border-radius: $border-radius-md;
+      font-size: $font-size-button;
+      font-weight: $font-weight-semibold;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+    }
   }
- }
+
+  @media (max-width: 768px) {
+    padding: $spacing-xxl $spacing-lg;
+
+    .tour-content {
+      .tour-title {
+        font-size: $font-size-2xl;
+      }
+
+      .tour-price .price-amount {
+        font-size: $font-size-3xl;
+      }
+
+      .tour-description {
+        font-size: $font-size-xs;
+      }
+    }
+  }
 }

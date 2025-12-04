@@ -4,130 +4,127 @@
 @use "mixins" as *;
 
 .inner {
- max-width: $max-width-container;
- margin: 0 auto;
- width: 100%;
- // padding: 0 $gutter;
+  max-width: $max-width-container;
+  margin: 0 auto;
+  width: 100%;
+  // padding: 0 $gutter;
 }
 .top-container {
- // padding-top: $header-height;
+  // padding-top: $header-height;
 }
 h1,
 h2,
 h3,
 h4,
 h5 {
- font-weight: 600;
- line-height: 1.2;
+  font-weight: 600;
+  line-height: 1.2;
 }
 .text-muted {
- color: $color-muted;
+  color: $color-muted;
 }
 h1 {
- font-size: 4.5rem;
+  font-size: 4.5rem;
 }
 h2 {
- font-size: 3.2rem;
 }
 h3 {
- font-size: 2.4rem;
+  font-size: 2.4rem;
 }
 .btn-primary {
- background: $color-primary;
- color: #fff;
- border-radius: 0.8rem;
- padding: 1rem 1.6rem;
- font-weight: 600;
- @include shadow-soft;
+  background: $color-primary;
+  color: #fff;
+  border-radius: 0.8rem;
+  padding: 1rem 1.6rem;
+  font-weight: 600;
+  @include shadow-soft;
 
- &:hover {
-  background: color.scale($color-primary, $lightness: -8%); // ✅ 안정 버전
- }
+  &:hover {
+    background: color.scale($color-primary, $lightness: -8%); // ✅ 안정 버전
+  }
 }
 section {
- header {
-  height: $header-height;
-  background: $color-bg;
-  backdrop-filter: blur(10rem);
-  background-color: #ffffff70;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+  header {
+    height: $header-height;
+    background: $color-bg;
+    backdrop-filter: blur(10rem);
+    background-color: #ffffff70;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 
-  .inner {
-   // @include flex-center-space-between;
-   height: 100%;
-   max-width: $max-width-container;
-   margin: 0 auto;
-   border-bottom: $border-light;
-   .tit {
-    h2{
-      font-size: clamp(1.5rem, 2vw, 2.5rem);
+    .inner {
+      // @include flex-center-space-between;
+      height: 100%;
+      max-width: $max-width-container;
+      margin: 0 auto;
+      border-bottom: $border-light;
+      .tit {
+        h2 {
+          font-size: clamp($font-size-xl, $font-size-2xl, $font-size-5xl);
+        }
+        p {
+          font-size: clamp(1rem, 1.5vw, 2rem);
+        }
+      }
     }
-    p{
-      font-size: clamp(1rem, 1.5vw, 2rem);
-    }
-   }
   }
- }
- &.main-layout{
-  header{
-    background-color: transparent;
-    backdrop-filter: none;
-    border-bottom-color: transparent;
+  &.main-layout {
+    header {
+      background-color: transparent;
+      backdrop-filter: none;
+      border-bottom-color: transparent;
 
+      &.scrolled {
+        background-color: hsla(0, 0%, 100%, 0.52);
+        box-shadow: $shadow-md;
+        backdrop-filter: blur(5rem);
+      }
+    }
+  }
+  &.mypage-layout,
+  &.booking-layout,
+  &.hotelpage-layout,
+  &.search-layout {
+    .inner {
+      border-bottom-color: $color-border;
+      h1.logo a {
+        color: $color-text;
+      }
+      .user-menu .user-button .user-name {
+        color: $color-text;
+      }
+      .btn-wishlist {
+        color: $color-text;
+      }
+    }
+    &.search-layout {
+      .inner {
+        border-bottom-color: transparent;
+      }
+    }
     &.scrolled {
-      background-color: hsla(0, 0%, 100%, 0.52);
-      box-shadow: $shadow-md;
-      backdrop-filter: blur(5rem);
-
-
-    }
-  }
-
-}
-&.mypage-layout ,
-&.booking-layout ,
-&.hotelpage-layout ,
-  &.search-layout{
-  .inner{
-    border-bottom-color: $color-border;
-    h1.logo a {
-      color: $color-text;
-    }
-    .user-menu .user-button .user-name {
-      
-      color: $color-text;
-    }
-    .btn-wishlist {
-      color: $color-text;
-
-    }
-  }
-  &.search-layout{
-    .inner{
       border-bottom-color: transparent;
     }
   }
-  &.scrolled {
-        border-bottom-color: transparent;
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
 
-      }
-}
-.section-header {
- display: flex;
- justify-content: space-between;
- align-items: center;
- margin-bottom: $spacing-lg;
+    h2 {
+      font-size: clamp($font-size-3xl, $font-size-4xl, $font-size-5xl);
 
- h2 {
-  font-size: $font-size-xl;
-  font-weight: bold;
-  margin-bottom: $spacing-xs;
- }
+      font-weight: bold;
+      margin-bottom: $spacing-xs;
+    }
+    p{
+      font-size: $font-size-sm;
+      color: $color-muted;
 
-
- }
+    }
+  }
 }

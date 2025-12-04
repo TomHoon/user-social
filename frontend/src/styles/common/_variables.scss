@@ -47,15 +47,44 @@ $color-ocean-light: #38bdf8;
 $color-premium: #f59e0b; // 프리미엄용 골드
 $color-premium-light: #fbbf24;
 
+// Typography
 $font-family-base: "Inter", "Noto Sans KR", sans-serif;
-$font-size-base: 1.6rem;
+
+// Base font sizes
+$font-size-xs: 1.2rem;
 $font-size-sm: 1.4rem;
+$font-size-base: 1.6rem;
 $font-size-lg: 1.8rem;
 $font-size-xl: 2rem;
-$font-size-2xl: 2.8rem;
+$font-size-2xl: 2.4rem;
+$font-size-3xl: 3rem;
+$font-size-4xl: 3.6rem;
+$font-size-5xl: 4.8rem;
+$font-size-6xl: 6rem;
+
+// Section specific font sizes
+$font-size-section-title: 3.6rem; // 섹션 메인 제목
+$font-size-section-subtitle: 2.4rem; // 섹션 서브 제목
+$font-size-section-description: 1.6rem; // 섹션 설명
+$font-size-card-title: 2rem; // 카드 제목
+$font-size-card-subtitle: 1.6rem; // 카드 서브타이틀
+$font-size-card-description: 1.4rem; // 카드 설명
+$font-size-button: 1.6rem; // 버튼 텍스트
+$font-size-label: 1.4rem; // 레이블
+$font-size-caption: 1.2rem; // 캡션/작은 텍스트
+
+// Line heights
 $line-height-base: 1.5;
 $line-height-tight: 1.2;
 $line-height-relaxed: 1.75;
+$line-height-loose: 2;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
 
 // Spacing tokens
 $spacing-xs: 0.8rem;

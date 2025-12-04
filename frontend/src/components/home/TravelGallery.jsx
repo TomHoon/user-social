@@ -10,9 +10,9 @@ const TravelGallery = ({ hotels }) => {
  return (
   <div className="travel-gallery">
    <div className="gallery-grid">
-    {displayHotels.map((item) => (
+    {displayHotels.map((item,i) => (
      <div
-      key={item.id}
+      key={i}
       className={`gallery-item ${item.className || ""}`}
       style={{ backgroundImage: `url(${item.images?.[0] || ""})` }}
      >

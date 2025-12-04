@@ -1,78 +1,89 @@
-@use "../../common/variables";
-@use "../../common/mixins";
+@import "../../common/variables";
+@import "../../common/mixins";
 
 .travel-gallery {
- flex: 1;
+  flex: 1;
 
- .gallery-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  height: 400px;
-  justify-content: space-between;
-
-  .gallery-item {
-   width: 48%;
-   height: 48%;
-   position: relative;
-   border-radius: 15px;
-   background-size: cover;
-   background-position: center;
-   overflow: hidden;
-   cursor: pointer;
-   transition: transform 0.3s ease;
-
-   &:hover {
-    transform: scale(1.02);
-   }
-
-   .gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease;
-   }
-
-   &:hover .gallery-overlay {
-    background: rgba(0, 0, 0, 0.2);
-   }
-
-   &.travel-image-1 {
-    background-image: url("/images/travel-1.jpg");
-   }
-
-   &.travel-image-2 {
-    background-image: url("/images/travel-2.jpg");
-   }
-
-   &.travel-image-3 {
-    min-height: 160px;
-    background-image: url("/images/travel-3.jpg");
-   }
-
-   &.travel-image-4 {
-    background-image: url("/images/travel-4.jpg");
-   }
-  }
- }
-
- @media (max-width: 768px) {
   .gallery-grid {
-   grid-template-columns: 1fr;
-   height: auto;
-   gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    height: 400px;
+    justify-content: space-between;
 
-   .gallery-item {
-    min-height: 150px !important;
+    .gallery-item {
+      width: 48%;
+      height: 48%;
+      position: relative;
+      border-radius: $border-radius-lg;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: scale(1.02);
+      }
 
-    &.travel-image-1,
-    &.travel-image-4 {
-     grid-column: 1;
+      .gallery-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.1);
+        transition: background 0.3s ease;
+      padding: $spacing-md;
+        h4{
+          font-size: $font-size-card-subtitle;
+          color: $color-text-light;
+          font-weight: $font-weight-semibold;
+        }
+        p{
+          font-size: $font-size-sm;
+          color: $color-bg-hover;
+          margin-top: $spacing-xs;
+          font-weight: $font-weight-normal;
+        }
+      }
+
+      &:hover .gallery-overlay {
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      &.travel-image-1 {
+        background-image: url("/images/travel-1.jpg");
+      }
+
+      &.travel-image-2 {
+        background-image: url("/images/travel-2.jpg");
+      }
+
+      &.travel-image-3 {
+        min-height: 160px;
+        background-image: url("/images/travel-3.jpg");
+      }
+
+      &.travel-image-4 {
+        background-image: url("/images/travel-4.jpg");
+      }
     }
-   }
   }
- }
+
+  @media (max-width: 768px) {
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      height: auto;
+      gap: $spacing-xs;
+
+      .gallery-item {
+        min-height: 150px !important;
+
+        &.travel-image-1,
+        &.travel-image-4 {
+          grid-column: 1;
+        }
+      }
+    }
+  }
 }

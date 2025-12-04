@@ -3,219 +3,222 @@
 @use "sass:color";
 
 .newsletter-section {
- padding: 80px 0;
- background: linear-gradient(135deg, #a8e6cf, #88d8a3);
+  padding: $spacing-section 0;
+  background: $gradient-gray-light;
 
- .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
- }
-
- .newsletter-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-
-  .newsletter-text {
-   color: white;
-
-   .newsletter-title {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 40px;
-    line-height: 1.2;
-   }
-
-   .newsletter-info {
-    margin-bottom: 30px;
-
-    h3 {
-     font-size: 1.5rem;
-     font-weight: bold;
-     margin-bottom: 10px;
-    }
-
-    p {
-     opacity: 0.9;
-     line-height: 1.6;
-     font-size: 1rem;
-    }
-   }
-
-   .newsletter-form {
-    display: flex;
-    gap: 15px;
-
-    .email-input {
-     flex: 1;
-     padding: 15px 20px;
-     border: none;
-     border-radius: 10px;
-     font-size: 1rem;
-     background: white;
-     color: $color-text;
-
-     &::placeholder {
-      color: #999;
-     }
-
-     &:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-     }
-    }
-
-    .subscribe-btn {
-     background: $color-secondary;
-     color: white;
-     border: none;
-     padding: 15px 30px;
-     border-radius: 10px;
-     font-weight: 600;
-     font-size: 1rem;
-     cursor: pointer;
-     transition: all 0.3s ease;
-     white-space: nowrap;
-
-     &:hover {
-      background: color.adjust($color-secondary, $lightness: -10%);
-      transform: translateY(-1px);
-     }
-
-     &:active {
-      transform: translateY(0);
-     }
-    }
-   }
+  .container {
+    max-width: $max-width-container;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
   }
-
-  .newsletter-graphics {
-   position: relative;
-   height: 300px;
-   width: 100%;
-
-   .graphic-element {
-    position: absolute;
-    border-radius: 20px;
-    transition: transform 0.3s ease;
-
-    &:hover {
-     transform: scale(1.05);
-    }
-
-    &.graphic-1 {
-     top: 20px;
-     right: 20px;
-     width: 120px;
-     height: 100px;
-     background: rgba(255, 255, 255, 0.15);
-     border-radius: 50%;
-    }
-
-    &.graphic-2 {
-     top: 80px;
-     left: 20px;
-     width: 80px;
-     height: 120px;
-     background: rgba(0, 0, 0, 0.1);
-     border-radius: 15px;
-    }
-
-    &.graphic-3 {
-     bottom: 80px;
-     right: 60px;
-     width: 100px;
-     height: 80px;
-     background: #ff6b6b;
-     border-radius: 12px;
-    }
-
-    &.graphic-4 {
-     bottom: 20px;
-     left: 80px;
-     width: 90px;
-     height: 60px;
-     background: #ffd93d;
-     border-radius: 12px;
-    }
-   }
-  }
- }
-
- @media (max-width: 768px) {
-  padding: 60px 0;
 
   .newsletter-content {
-   grid-template-columns: 1fr;
-   gap: 40px;
-   text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
 
-   .newsletter-text {
-    .newsletter-title {
-     font-size: 2.5rem;
+    .newsletter-text {
+      //  color: white;
+
+      .newsletter-title {
+        color: $color-primary-dark;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-section-title;
+        margin-bottom: $spacing-xxxl;
+        line-height: $line-height-tight;
+      }
+
+      .newsletter-info {
+        margin-bottom: $spacing-xxl;
+
+        h3 {
+          font-size: $font-size-section-subtitle;
+          font-weight: $font-weight-bold;
+          margin-bottom: $spacing-sm;
+          color: $color-text;
+        }
+
+        p {
+          opacity: 0.9;
+          line-height: $line-height-relaxed;
+          font-size: $font-size-section-description;
+          color: $color-muted;
+        }
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: $spacing-md;
+
+        .email-input {
+          flex: 1;
+          padding: $spacing-md $spacing-lg;
+          border: none;
+          border-radius: $border-radius-md;
+          font-size: $font-size-base;
+          background: $color-bg;
+          color: $color-text;
+
+          &::placeholder {
+            color: $color-muted;
+          }
+
+          &:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.3rem rgba(255, 255, 255, 0.3);
+          }
+        }
+
+        .subscribe-btn {
+          background: $color-secondary;
+          color: $color-text-light;
+          border: none;
+          padding: $spacing-md $spacing-xxl;
+          border-radius: $border-radius-md;
+          font-weight: $font-weight-semibold;
+          font-size: $font-size-button;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          white-space: nowrap;
+
+          &:hover {
+            background: color.adjust($color-secondary, $lightness: -10%);
+            transform: translateY(-0.1rem);
+          }
+
+          &:active {
+            transform: translateY(0);
+          }
+        }
+      }
     }
 
-    .newsletter-form {
-     flex-direction: column;
-     gap: 15px;
-
-     .email-input,
-     .subscribe-btn {
+    .newsletter-graphics {
+      position: relative;
+      height: 30rem;
       width: 100%;
-      padding: 18px 20px;
-     }
+
+      .graphic-element {
+        position: absolute;
+        border-radius: $border-radius-lg;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+
+        &.graphic-1 {
+          top: $spacing-lg;
+          right: $spacing-lg;
+          width: 12rem;
+          height: 10rem;
+          background: rgba(255, 255, 255, 0.15);
+          border-radius: $border-radius-full;
+        }
+
+        &.graphic-2 {
+          top: 8rem;
+          left: $spacing-lg;
+          width: 8rem;
+          height: 12rem;
+          background: rgba(0, 0, 0, 0.1);
+          border-radius: $border-radius-md;
+        }
+
+        &.graphic-3 {
+          bottom: 8rem;
+          right: 6rem;
+          width: 10rem;
+          height: 8rem;
+          background: $color-error;
+          border-radius: $border-radius-lg;
+        }
+
+        &.graphic-4 {
+          bottom: $spacing-lg;
+          left: 8rem;
+          width: 9rem;
+          height: 6rem;
+          background: $color-warning;
+          border-radius: $border-radius-lg;
+        }
+      }
     }
-   }
-
-   .newsletter-graphics {
-    height: 250px;
-
-    .graphic-element {
-     &.graphic-1 {
-      width: 100px;
-      height: 80px;
-      top: 10px;
-      right: 10px;
-     }
-
-     &.graphic-2 {
-      width: 60px;
-      height: 100px;
-      top: 60px;
-      left: 10px;
-     }
-
-     &.graphic-3 {
-      width: 80px;
-      height: 60px;
-      bottom: 60px;
-      right: 40px;
-     }
-
-     &.graphic-4 {
-      width: 70px;
-      height: 50px;
-      bottom: 10px;
-      left: 60px;
-     }
-    }
-   }
   }
- }
 
- @media (max-width: 480px) {
-  .newsletter-content {
-   .newsletter-text {
-    .newsletter-title {
-     font-size: 2rem;
+  @media (max-width: $breakpoint-md) {
+    padding: 6rem 0;
+
+    .newsletter-content {
+      grid-template-columns: 1fr;
+      gap: $spacing-xxxl;
+      text-align: center;
+
+      .newsletter-text {
+        .newsletter-title {
+          font-size: 2.5rem;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+          gap: $spacing-md;
+
+          .email-input,
+          .subscribe-btn {
+            width: 100%;
+            padding: $font-size-lg $spacing-lg;
+          }
+        }
+      }
+
+      .newsletter-graphics {
+        height: 25rem;
+
+        .graphic-element {
+          &.graphic-1 {
+            width: 10rem;
+            height: 8rem;
+            top: $spacing-sm;
+            right: $spacing-sm;
+          }
+
+          &.graphic-2 {
+            width: 6rem;
+            height: 10rem;
+            top: 6rem;
+            left: $spacing-sm;
+          }
+
+          &.graphic-3 {
+            width: 8rem;
+            height: 6rem;
+            bottom: 6rem;
+            right: $spacing-xxxl;
+          }
+
+          &.graphic-4 {
+            width: 7rem;
+            height: 5rem;
+            bottom: $spacing-sm;
+            left: 6rem;
+          }
+        }
+      }
     }
-   }
-
-   .newsletter-graphics {
-    height: 200px;
-   }
   }
- }
+
+  @media (max-width: 48rem) {
+    .newsletter-content {
+      .newsletter-text {
+        .newsletter-title {
+          font-size: 2rem;
+        }
+      }
+
+      .newsletter-graphics {
+        height: 20rem;
+      }
+    }
+  }
 }

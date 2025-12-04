@@ -12,6 +12,7 @@ const TravelMore = () => {
    try {
     const data = await getFeaturedHotels(5);
     setHotels(data);
+    console.log("Featured hotels data:", data);
    } catch (error) {
     console.error("Failed to fetch featured hotels:", error);
    }

@@ -24,61 +24,61 @@
 
   .hero-content {
     .hero-title {
-      font-size: 3.5rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      line-height: 1.2;
+      font-size: $font-size-section-title;
+      font-weight: $font-weight-extrabold;
+      margin-bottom: $spacing-md;
+      line-height: $line-height-tight;
     }
 
     .hero-subtitle {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      line-height: 1.3;
+      font-size: $font-size-section-subtitle;
+      font-weight: $font-weight-semibold;
+      margin-bottom: $spacing-lg;
+      line-height: $line-height-tight;
     }
 
     .hero-description {
-      font-size: 1.1rem;
-      line-height: 1.6;
+      font-size: $font-size-section-description;
+      line-height: $line-height-relaxed;
       opacity: 0.9;
     }
   }
 
   .search-form {
-    background: white;
-    padding: 3rem;
-    border-radius: 1.5rem;
-    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.1);
+    background: $color-bg;
+    padding: $spacing-xxl;
+    border-radius: $border-radius-lg;
+    box-shadow: $shadow-lg;
     color: $color-text;
 
     h3 {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
+      font-size: $font-size-card-title;
+      margin-bottom: $spacing-lg;
       color: $color-primary;
     }
 
     .form-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
+      gap: $spacing-lg;
     }
 
     .form-group {
       label {
         display: block;
-        font-weight: 600;
-        margin-bottom: 0.8rem;
+        font-weight: $font-weight-semibold;
+        margin-bottom: $spacing-xs;
         color: $color-text;
-        font-size: 0.9rem;
+        font-size: $font-size-label;
       }
 
       input,
       select {
         width: 100%;
-        padding: 1.2rem;
+        padding: $spacing-sm;
         border: 0.2rem solid $color-border;
-        border-radius: 0.8rem;
-        font-size: 1rem;
+        border-radius: $border-radius-md;
+        font-size: $font-size-base;
         transition: border-color 0.3s ease;
 
         &:focus {
@@ -95,44 +95,44 @@
 
   .user-menu {
     position: absolute;
-    top: 2rem;
-    right: 2rem;
-    background: white;
-    border-radius: 1.5rem;
-    padding: 2rem;
-    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+    top: $spacing-lg;
+    right: $spacing-lg;
+    background: $color-bg;
+    border-radius: $border-radius-lg;
+    padding: $spacing-lg;
+    box-shadow: $shadow-md;
     color: $color-text;
     min-width: 20rem;
 
     .user-info {
       display: flex;
       align-items: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
+      margin-bottom: $spacing-lg;
+      padding-bottom: $spacing-lg;
       border-bottom: 0.1rem solid $color-border;
 
       .avatar {
         width: 4rem;
         height: 4rem;
-        border-radius: 50%;
+        border-radius: $border-radius-full;
         background: $color-primary;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
-        font-weight: bold;
-        margin-right: 1rem;
+        color: $color-text-light;
+        font-weight: $font-weight-bold;
+        margin-right: $spacing-md;
       }
 
       .user-details {
         .username {
           display: block;
-          font-weight: 600;
+          font-weight: $font-weight-semibold;
           color: $color-text;
         }
 
         .status {
-          font-size: 0.8rem;
+          font-size: $font-size-caption;
           color: $color-text-secondary;
         }
       }
@@ -140,7 +140,7 @@
 
     .menu-items {
       .menu-item {
-        padding: 1rem 0;
+        padding: $spacing-md 0;
         cursor: pointer;
         border-bottom: 0.1rem solid $color-border-light;
         transition: color 0.3s ease;
@@ -172,19 +172,15 @@
       url("/images/hero-bg-3.jpg");
   }
 
-  @media (max-width: 76.8rem) {
+  @media (max-width: $breakpoint-md) {
     .hero-card-container {
       grid-template-columns: 1fr;
-      gap: 4rem;
+      gap: $spacing-xxxl;
     }
 
     .hero-content {
-      // .hero-title {
-      //   font-size: 2.5rem;
-      // }
-
       .hero-subtitle {
-        font-size: 2rem;
+        font-size: $font-size-xl;
       }
     }
 
@@ -198,7 +194,7 @@
       position: relative;
       top: auto;
       right: auto;
-      margin-top: 2rem;
+      margin-top: $spacing-lg;
     }
   }
 }
