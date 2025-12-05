@@ -3,7 +3,7 @@ import { FaStar, FaMapMarkerAlt, FaHeart, FaShare } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "../../styles/components/hotelpage/HotelDetailHeader.scss";
 
-const HotelDetailHeader = ({ hotel }) => {
+const HotelDetailHeader = ({ hotel, toggleFavorite, favoriteHotelIds }) => {
  // console.log("HotelDetailHeader props:", hotel);
 
  const navigate = useNavigate();
@@ -38,8 +38,9 @@ const HotelDetailHeader = ({ hotel }) => {
   return stars;
  };
 
- const handleFavorite = () => {
-  console.log("Add to favorites");
+ const handleFavorite = async () => {
+  await toggleFavorite(hotel._id || hotel.id);
+
  };
 
  const handleShare = () => {
@@ -55,6 +56,7 @@ const HotelDetailHeader = ({ hotel }) => {
   navigate(`/booking/${hotel._id || hotel.id}?${params.toString()}`);
  };
 
+ const isFavorited = favoriteHotelIds.includes(hotel._id || hotel.id);
  return (
   <div className="hotel-detail-header">
    <div className="header-top">
@@ -64,7 +66,7 @@ const HotelDetailHeader = ({ hotel }) => {
     </div>
     <div className="header-actions">
      <button className="icon-btn" onClick={handleFavorite}>
-      <FaHeart />
+   {isFavorited ? "❤️" : "🤍"}
      </button>
      <button className="icon-btn" onClick={handleShare}>
       <FaShare />

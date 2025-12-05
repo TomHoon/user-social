@@ -1,18 +1,18 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import '../../styles/pages/support/NoticeDetailPage.scss';
+import React from "react";
+import { useParams, Link } from "react-router-dom";
+import "../../styles/pages/support/NoticeDetailPage.scss";
 
 const NoticeDetailPage = () => {
-  const { noticeId } = useParams();
+ const { noticeId } = useParams();
 
-  // 임시 데이터
-  const notice = {
-    id: noticeId,
-    category: '공지',
-    title: '설 연휴 고객센터 운영 안내',
-    date: '2025-01-15',
-    views: 1234,
-    content: `
+ // 임시 데이터
+ const notice = {
+  id: noticeId,
+  category: "공지",
+  title: "설 연휴 고객센터 운영 안내",
+  date: "2025-01-15",
+  views: 1234,
+  content: `
       <p>안녕하세요, W-HOTEL입니다.</p>
       
       <p>설 연휴 기간 동안 고객센터 운영 시간이 변경됩니다.</p>
@@ -33,30 +33,33 @@ const NoticeDetailPage = () => {
       <p>고객님의 양해 부탁드리며, 즐거운 연휴 보내시기 바랍니다.</p>
       
       <p>감사합니다.</p>
-    `
-  };
+    `,
+ };
 
-  return (
-    <div className="notice-detail-page">
-      <div className="notice-header">
-        <span className="category-badge">{notice.category}</span>
-        <h1>{notice.title}</h1>
-        <div className="notice-meta">
-          <span className="date">{notice.date}</span>
-          <span className="divider">|</span>
-          <span className="views">조회 {notice.views}</span>
-        </div>
-      </div>
-
-      <div className="notice-content" dangerouslySetInnerHTML={{ __html: notice.content }} />
-
-      <div className="notice-footer">
-        <Link to="/support/notices" className="back-btn">
-          목록으로
-        </Link>
-      </div>
+ return (
+  <div className="notice-detail-page">
+   <div className="notice-header">
+    <span className="category-badge">{notice.category}</span>
+    <h1>{notice.title}</h1>
+    <div className="notice-meta">
+     <span className="date">{notice.date}</span>
+     <span className="divider">|</span>
+     <span className="views">조회 {notice.views}</span>
     </div>
-  );
+   </div>
+
+   <div
+    className="notice-content"
+    dangerouslySetInnerHTML={{ __html: notice.content }}
+   />
+
+   <div className="notice-footer">
+    <Link to="/support/notices" className="back-btn">
+     목록으로
+    </Link>
+   </div>
+  </div>
+ );
 };
 
 export default NoticeDetailPage;
