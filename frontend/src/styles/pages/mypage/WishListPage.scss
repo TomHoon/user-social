@@ -1,0 +1,323 @@
+@import "../../common/variables";
+@import "../../common/mixins";
+
+.wish-container {
+  margin-top: $header-height;
+  padding: $spacing-xxxl 0;
+  background: $color-bg-light;
+  min-height: calc(100vh - $header-height);
+
+  .inner {
+    max-width: $max-width-container;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-xxxl;
+    padding-bottom: $spacing-lg;
+    border-bottom: 2px solid $color-border;
+
+    .tit {
+      .section-title {
+        font-size: $font-size-section-title;
+        font-weight: $font-weight-bold;
+        color: $color-text;
+        margin-bottom: $spacing-sm;
+      }
+
+      .section-subtitle {
+        font-size: $font-size-section-description;
+        color: $color-text-secondary;
+        line-height: $line-height-relaxed;
+      }
+    }
+
+    .favorites-count {
+      font-size: $font-size-lg;
+      color: $color-text-secondary;
+      padding: $spacing-sm $spacing-md;
+      background: $color-bg;
+      border-radius: $border-radius-md;
+      white-space: nowrap;
+
+      strong {
+        color: $color-primary;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-xl;
+      }
+    }
+  }
+
+  .loading {
+    text-align: center;
+    padding: $spacing-xxxl;
+    font-size: $font-size-xl;
+    color: $color-text-secondary;
+  }
+
+  .empty-favorites {
+    text-align: center;
+    padding: $spacing-section 0;
+    background: $color-bg;
+    border-radius: $border-radius-lg;
+
+    .empty-icon {
+      font-size: 8rem;
+      margin-bottom: $spacing-lg;
+      opacity: 0.3;
+    }
+
+    h3 {
+      font-size: $font-size-2xl;
+      font-weight: $font-weight-bold;
+      color: $color-text;
+      margin-bottom: $spacing-md;
+    }
+
+    p {
+      font-size: $font-size-lg;
+      color: $color-text-secondary;
+      margin-bottom: $spacing-xxl;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: $spacing-md $spacing-xxl;
+      background: $color-primary;
+      color: $color-text-light;
+      font-size: $font-size-button;
+      font-weight: $font-weight-semibold;
+      border-radius: $border-radius-md;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $color-primary-dark;
+        transform: translateY(-2px);
+        box-shadow: $shadow-lg;
+      }
+    }
+  }
+
+  .favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: $spacing-xl;
+  }
+
+  .favorites-card {
+    background: $color-bg;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    transition: all 0.3s ease;
+
+    &:hover {
+      box-shadow: $shadow-xl;
+      transform: translateY(-4px);
+    }
+
+    .card-image {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+
+      .btn-remove-favorites {
+        position: absolute;
+        top: $spacing-md;
+        right: $spacing-md;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.95);
+        border: none;
+        border-radius: 50%;
+        font-size: 2rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: $shadow-md;
+
+        &:hover {
+          transform: scale(1.1);
+          background: $color-bg;
+        }
+      }
+
+      .card-tags {
+        position: absolute;
+        bottom: $spacing-md;
+        left: $spacing-md;
+        display: flex;
+        gap: $spacing-xs;
+        flex-wrap: wrap;
+
+        .tag {
+          padding: $spacing-xs $spacing-sm;
+          background: rgba(0, 0, 0, 0.7);
+          color: $color-text-light;
+          font-size: $font-size-caption;
+          border-radius: $border-radius-sm;
+          backdrop-filter: blur(4px);
+        }
+      }
+    }
+
+    .card-content {
+      padding: $spacing-lg;
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: $spacing-sm;
+
+        .hotel-name {
+          font-size: $font-size-card-title;
+          font-weight: $font-weight-bold;
+          color: $color-text;
+          line-height: $line-height-tight;
+          flex: 1;
+        }
+
+        .hotel-rating {
+          display: flex;
+          align-items: center;
+          gap: $spacing-xs;
+          margin-left: $spacing-sm;
+          white-space: nowrap;
+
+          .rating-score {
+            font-size: $font-size-base;
+            font-weight: $font-weight-semibold;
+            color: $color-text;
+          }
+
+          .review-count {
+            font-size: $font-size-sm;
+            color: $color-text-secondary;
+          }
+        }
+      }
+
+      .hotel-location {
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+        margin-bottom: $spacing-lg;
+      }
+
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: $spacing-md;
+        border-top: 1px solid $color-border-light;
+
+        .price-info {
+          display: flex;
+          flex-direction: column;
+          gap: $spacing-xs;
+
+          .price-label {
+            font-size: $font-size-caption;
+            color: $color-text-secondary;
+          }
+
+          .price-amount {
+            font-size: $font-size-xl;
+            font-weight: $font-weight-bold;
+            color: $color-primary;
+          }
+        }
+
+        .btn-view-detail {
+          padding: $spacing-sm $spacing-lg;
+          background: $color-primary;
+          color: $color-text-light;
+          font-size: $font-size-sm;
+          font-weight: $font-weight-semibold;
+          border-radius: $border-radius-md;
+          text-decoration: none;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background: $color-primary-dark;
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: $spacing-xl 0;
+
+    .section-header {
+      flex-direction: column;
+      gap: $spacing-md;
+      margin-bottom: $spacing-xl;
+
+      .tit {
+        .section-title {
+          font-size: $font-size-3xl;
+        }
+
+        .section-subtitle {
+          font-size: $font-size-sm;
+        }
+      }
+
+      .favorites-count {
+        align-self: flex-start;
+      }
+    }
+
+    .favorites-grid {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+
+    .favorites-card {
+      .card-content {
+        padding: $spacing-md;
+
+        .card-header {
+          flex-direction: column;
+          gap: $spacing-xs;
+
+          .hotel-rating {
+            margin-left: 0;
+          }
+        }
+
+        .card-footer {
+          flex-direction: column;
+          align-items: stretch;
+          gap: $spacing-md;
+
+          .btn-view-detail {
+            width: 100%;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

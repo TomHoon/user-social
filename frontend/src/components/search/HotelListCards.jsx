@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/components/search/HotelListCards.scss";
 
-const HotelListCards = ({ hotels = [] }) => {
+const HotelListCards = ({
+  hotels = [],
+  toggleFavorite,
+  favoriteHotelIds = [],
+}) => {
   const navigate = useNavigate();
+
+  const isFavorite = (hotelId) => {
+    return favoriteHotelIds.includes(hotelId);
+  };
+
+  const handleFavoriteClick = async (e, hotelId) => {
+    e.stopPropagation();
+    await toggleFavorite(hotelId);
+  };
   // console.log("HotelListCards received hotels:", hotels);
 
   if (!hotels || hotels.length === 0) {
@@ -14,14 +27,12 @@ const HotelListCards = ({ hotels = [] }) => {
 
   return (
     <div className="hotel-list-cards">
-      {hotels.map((hotel ,i) => (
+      {hotels.map((hotel, i) => (
         <div
           key={i}
           className="hotel-card"
-       
           onClick={() => {
             navigate(`/hotels/${hotel.id}`);
-  
           }}
         >
           <div className="hotel-image">
@@ -58,7 +69,14 @@ const HotelListCards = ({ hotels = [] }) => {
               <div className="price-note">excl. tax</div>
             </div>
 
-            <button className="wishlist-button">❤️</button>
+            <button
+              onClick={(e) => handleFavoriteClick(e, hotel.id)}
+              className={`wishlist-button ${
+                isFavorite(hotel.id) ? "active" : ""
+              }`}
+            >
+              {isFavorite(hotel.id) ? "❤️" : "🤍"}
+            </button>
             <button className="view-button">View Place</button>
           </div>
         </div>

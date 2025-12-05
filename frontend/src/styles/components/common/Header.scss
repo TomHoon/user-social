@@ -8,8 +8,7 @@ header {
     height: 8rem;
     position: relative;
     h1.logo a {
-      font-weight: 900;
-      font-size: 2.4rem;
+      font-size: $font-size-2xl;
       color: $color-bg;
     }
     .right {
@@ -178,7 +177,7 @@ header {
     .inner {
 
       border-bottom-color: transparent;
-      h1.logo a {
+      .logo a {
         color: $color-primary;
     }
     .btn-wishlist {

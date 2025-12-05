@@ -129,7 +129,7 @@ const Header = () => {
           </div>
           {isAuthed && (
             <NavLink
-              to="/wishlist"
+              to="/favorites"
               className={({ isActive }) => (`${isActive ? "active" : ""} btn-wishlist`)}
             >
               <span className="nav-icon">❤️</span> 찜하기

@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/components/home/MalakaTour.scss";
 
 const MalakaTour = ({ hotel }) => {
- console.log(hotel);
+//  console.log(hotel);
 
  if (!hotel) return null;
 

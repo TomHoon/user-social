@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/components/home/TravelGallery.scss";
 
 const TravelGallery = ({ hotels }) => {
- console.log(hotels);
+//  console.log(hotels);
 
  // 2번째부터 5번째 항목까지만 표시 (인덱스 1~4)
  const displayHotels = hotels.slice(1, 5);

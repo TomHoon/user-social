@@ -89,6 +89,7 @@ section {
   &.hotelpage-layout,
   &.support-layout,
   &.search-layout {
+    padding:$gutter-lg 0;
     .inner {
       border-bottom-color: $color-border;
       h1.logo a {
@@ -122,10 +123,19 @@ section {
       font-weight: bold;
       margin-bottom: $spacing-xs;
     }
-    p{
+    p {
       font-size: $font-size-sm;
       color: $color-muted;
-
     }
+  }
+}
+.logo {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-light;
+
+  &::before {
+    content: "🏨";
+    margin-right: $spacing-sm;
   }
 }

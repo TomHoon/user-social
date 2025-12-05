@@ -7,7 +7,6 @@ import HotelGallery from "../../components/hotelpage/HotelGallery";
 import HotelMap from "../../components/hotelpage/HotelMap";
 import HotelOverview from "../../components/hotelpage/HotelOverview";
 import HotelReviews from "../../components/hotelpage/HotelReviews";
-import "../../styles/pages/hotelpage/HotelDetailPage.scss";
 import {
   getHotels,
   getHotelDetail,
