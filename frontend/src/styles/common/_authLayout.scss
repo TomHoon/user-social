@@ -32,6 +32,10 @@
   justify-content: center;
   padding: $spacing-xxxl $spacing-lg;
   background: $color-bg;
+
+  @media (max-width: 768px) {
+   padding: $spacing-xl $spacing-md;
+  }
  }
 
  .auth-layout-image-section {
@@ -61,6 +65,10 @@
  max-width: 42rem;
  padding: 0;
 
+ @media (max-width: 768px) {
+  max-width: 100%;
+ }
+
  .form-header {
   margin-bottom: $spacing-xxl;
   text-align: left;
@@ -76,13 +84,17 @@
 
    &:hover {
     color: $color-primary;
-    transition: color 0.2s ease;
-   }
-  }
-
   .form-title {
-   font-size: 3.2rem;
-   font-weight: 700;
+   font-size: $font-size-section-title;
+   font-weight: $font-weight-bold;
+   color: $color-text;
+   margin-bottom: $spacing-xs;
+   line-height: $line-height-tight;
+
+   @media (max-width: 768px) {
+    font-size: $font-size-3xl;
+   }
+  }font-weight: 700;
    color: $color-text;
    margin-bottom: $spacing-xs;
    line-height: $line-height-tight;
@@ -92,18 +104,16 @@
    font-size: $font-size-base;
    color: $color-text-secondary;
    margin: 0;
-   line-height: $line-height-base;
-  }
- }
-
- .form-content {
+  .form-content {
   .error-message {
-   background: #fee2e2;
-   color: #dc2626;
+   background: $color-error-light;
+   color: $color-error;
    padding: $spacing-sm;
    border-radius: $border-radius-md;
    font-size: $font-size-sm;
    margin-bottom: $spacing-lg;
+   border: 1px solid $color-error-light;
+  }   margin-bottom: $spacing-lg;
    border: 1px solid #fecaca;
   }
 
@@ -123,13 +133,13 @@
 
    .form-row & {
     margin-bottom: 0;
-   }
-
    .form-label {
     display: block;
-    font-size: $font-size-sm;
-    font-weight: 500;
+    font-size: $font-size-label;
+    font-weight: $font-weight-medium;
     color: $color-text;
+    margin-bottom: $spacing-xs;
+   }color: $color-text;
     margin-bottom: $spacing-xs;
    }
 
@@ -170,13 +180,13 @@
 
     input[type="checkbox"] {
      margin-right: $spacing-xs;
+    input[type="checkbox"] {
+     margin-right: $spacing-xs;
      margin-top: 0.2rem;
-     width: 1.6rem;
-     height: 1.6rem;
+     width: $font-size-base;
+     height: $font-size-base;
      flex-shrink: 0;
-    }
-
-    .checkbox-label {
+    }checkbox-label {
      font-size: $font-size-sm;
      color: $color-text-secondary;
      line-height: $line-height-base;
@@ -202,13 +212,15 @@
 
   .form-button {
    width: 100%;
+  .form-button {
+   width: 100%;
    padding: $spacing-md;
    background: $gradient-gray-medium;
-   color: white;
+   color: $color-text-light;
    border: none;
    border-radius: $border-radius-md;
-   font-size: $font-size-base;
-   font-weight: 600;
+   font-size: $font-size-button;
+   font-weight: $font-weight-semibold;
    cursor: pointer;
    transition: all 0.2s ease;
    margin-bottom: $spacing-xl;
@@ -216,11 +228,13 @@
    &:hover {
     background: $gradient-gray-dark;
     transform: translateY(-1px);
-    box-shadow: $shadow-sm;
+    box-shadow: $shadow-md;
    }
-  }
 
-  .divider {
+   @media (max-width: 768px) {
+    padding: $spacing-sm $spacing-md;
+   }
+  }divider {
    text-align: center;
    margin: $spacing-xl 0;
    position: relative;
@@ -247,14 +261,11 @@
    .social-login-text {
     text-align: center;
     font-size: $font-size-sm;
-    color: $color-text-muted;
-    margin-bottom: $spacing-md;
-   }
-
    .social-buttons {
     display: flex;
     gap: $spacing-sm;
     justify-content: center;
+    flex-wrap: wrap;
 
     .social-button {
      width: 4.8rem;
@@ -270,12 +281,12 @@
 
      &:hover {
       transform: translateY(-1px);
-      box-shadow: $shadow-sm;
+      box-shadow: $shadow-md;
      }
 
      .social-icon {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: $font-size-xl;
+      font-weight: $font-weight-semibold;
      }
 
      &.facebook .social-icon {
@@ -287,7 +298,20 @@
      }
 
      &.apple .social-icon {
-      color: #000;
+      color: $color-text;
+     }
+
+     @media (max-width: 768px) {
+      width: 4rem;
+  .security-info {
+   .security-text {
+    font-size: $font-size-caption;
+    color: $color-text-muted;
+    line-height: $line-height-base;
+    text-align: center;
+    margin: 0;
+   }
+  }   color: #000;
      }
     }
    }

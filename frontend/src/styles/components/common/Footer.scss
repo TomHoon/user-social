@@ -8,7 +8,7 @@ footer {
 
   .footer-links {
     background-color: $color-bg-dark;
-    padding: 6rem 0 4rem;
+    padding: $spacing-section 0 $spacing-xxxl;
 
     .inner {
       max-width: $max-width-container;
@@ -16,15 +16,13 @@ footer {
       padding: 0 $spacing-lg;
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
-      gap: 6rem;
+      gap: $spacing-section;
       align-items: start;
 
       .social-links {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-
-
 
         .description {
           font-size: $font-size-card-description;
@@ -38,8 +36,8 @@ footer {
           gap: $spacing-md;
 
           .social-link {
-            width: 3.6rem;
-            height: 3.6rem;
+            width: $spacing-xxxl;
+            height: $spacing-xxxl;
             background: rgba(255, 255, 255, 0.1);
             border-radius: $border-radius-sm;
             display: flex;
@@ -122,8 +120,8 @@ footer {
           gap: $spacing-sm;
 
           .follow-link {
-            width: 3.6rem;
-            height: 3.6rem;
+            width: $spacing-xxxl;
+            height: $spacing-xxxl;
             background: rgba(255, 255, 255, 0.1);
             border-radius: $border-radius-sm;
             display: flex;

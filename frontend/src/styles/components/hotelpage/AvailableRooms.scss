@@ -13,7 +13,12 @@
   align-items: center;
   text-align: left;
   border-bottom: $border;
-  padding-bottom: $gutter-lg;
+  padding: $gutter-lg;
+  &:hover {
+ box-shadow: $shadow-2xl;
+ border-radius: $border-radius-md;
+
+  }
   .left {
     display: flex;
     gap:$gutter-md;

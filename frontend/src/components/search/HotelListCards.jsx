@@ -75,7 +75,7 @@ const HotelListCards = ({
       >
        {isFavorite(hotel.id) ? "❤️" : "🤍"}
       </button>
-      <button className="view-button">View Place</button>
+      <button className="btn btn--secondary">View Place</button>
      </div>
     </div>
    ))}

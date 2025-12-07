@@ -5,7 +5,7 @@ header {
     align-items: center;
     justify-content: space-between;
     border-bottom: $border;
-    height: 8rem;
+    height: $header-height;
     position: relative;
     h1.logo a {
       font-size: $font-size-2xl;
@@ -31,11 +31,9 @@ header {
         border-radius: $border-radius-md;
         transition: background-color 0.2s ease;
 
-
-
         .user-avatar {
-          width: 4rem;
-          height: 4rem;
+          width: $spacing-xxxl;
+          height: $spacing-xxxl;
           border-radius: $border-radius-full;
           object-fit: cover;
           border: $border;
@@ -43,15 +41,15 @@ header {
 
         .user-avatar-placeholder {
           cursor: pointer;
-          width: 4rem;
-          height: 4rem;
+          width: $spacing-xxxl;
+          height: $spacing-xxxl;
           border-radius: $border-radius-full;
           background: $gradient-gray-light;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: $font-size-lg;
-          font-weight: 600;
+          font-weight: $font-weight-semibold;
           color: $color-text-secondary;
           border: $border;
           transition: all 0.2s ease;
@@ -64,16 +62,16 @@ header {
         }
 
         .user-name {
-          font-weight: 600;
+          font-weight: $font-weight-semibold;
           font-size: $font-size-base;
           color: $color-bg;
         }
 
-                &:hover {
+        &:hover {
           background-color: $color-bg-light;
-            .user-name {
-              color:$color-text;
-            }
+          .user-name {
+            color: $color-text;
+          }
         }
       }
 
@@ -108,7 +106,7 @@ header {
           margin-bottom: $spacing-sm;
 
           .dropdown-user-name {
-            font-weight: 700;
+            font-weight: $font-weight-bold;
             font-size: $font-size-lg;
             color: $color-text;
             margin-bottom: $spacing-xs;
@@ -166,7 +164,7 @@ header {
   }
   .btn-wishlist {
     color: $color-bg;
-    font-size: 1.2rem;
+    font-size: $font-size-xs;
   }
 
   &.scrolled {
@@ -175,15 +173,14 @@ header {
     backdrop-filter: blur(5rem);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     .inner {
-
       border-bottom-color: transparent;
       .logo a {
         color: $color-primary;
-    }
-    .btn-wishlist {
-      color: $color-text;
-    }
       }
+      .btn-wishlist {
+        color: $color-text;
+      }
+    }
     .user-menu .user-button .user-name {
       color: $color-text;
     }

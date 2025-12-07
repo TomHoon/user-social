@@ -22,7 +22,7 @@ const MalakaTour = ({ hotel }) => {
     <p className="tour-description">
      {hotel.description || "숙소 설명이 없습니다."}
     </p>
-    <button className="book-flight-btn">예약하기</button>
+    <button className="btn btn-book-flight">예약하기</button>
    </div>
   </div>
  );

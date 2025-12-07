@@ -77,7 +77,7 @@ const HotelDetailPage = () => {
    toggleFavorite={toggleFavorite}
    favoriteHotelIds={favoriteHotelIds}
    />
-   <HotelGallery images={hotel.images} hotelName={hotel.name} />
+   <HotelGallery hotelImages={hotel.images} hotelName={hotel.name} />
    <HotelOverview
     description={hotel.description}
     rating={hotel.ratingAverage}

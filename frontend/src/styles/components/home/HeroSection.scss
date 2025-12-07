@@ -2,69 +2,69 @@
 @use "../../common/mixins" as *;
 
 .hero-section {
- position: relative;
- .search-btn-wrapper {
-  position: absolute;
-  z-index: 5;
-  top: 50%;
-  width: $max-width-container;
-  left: 50%;
-  transform: translate(-50%,-50%);
- }
- .hero-swiper {
-   height: clamp(60rem, 80vh, 100vh);
-   .swiper-slide {
-    // height: 100%;
+  position: relative;
+  .search-btn-wrapper {
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    width: $max-width-container;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
-
-  // Pagination 커스텀 스타일
-  .swiper-pagination {
-   bottom: 2rem;
-
-   .swiper-pagination-bullet {
-    //  width: .3rem;
-     width: 10rem;
-     height: .3rem;
-     margin: 0 $gutter-sm;
-     
-     background: rgba(255, 255, 255, 0.2);
-     opacity: 1;
-     transition: all 0.3s ease;
-     border-radius: 0;
-     
-     &.swiper-pagination-bullet-active {
-      background: white;
-    }
-   }
-  }
- }
-
- // 오버레이 그라데이션
- .hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-   45deg,
-   rgba(37, 99, 235, 0.1),
-   rgba(30, 41, 59, 0.1)
-  );
-  pointer-events: none;
-  z-index: 1;
- }
-
- @media (max-width: 76.8rem) {
   .hero-swiper {
-   .swiper-pagination {
-    // bottom:33rem;
-
-    .swiper-pagination-bullet {
-     width: 1rem;
-     height: 1rem;
+    height: clamp(60rem, 80vh, 100vh);
+    .swiper-slide {
+      // height: 100%;
     }
-   }
+
+    // Pagination 커스텀 스타일
+    .swiper-pagination {
+      bottom: $spacing-xl;
+
+      .swiper-pagination-bullet {
+        //  width: .3rem;
+        width: 10rem;
+        height: 0.3rem;
+        margin: 0 $gutter-sm;
+
+        background: rgba(255, 255, 255, 0.2);
+        opacity: 1;
+        transition: all 0.3s ease;
+        border-radius: 0;
+
+        &.swiper-pagination-bullet-active {
+          background: $color-text-light;
+        }
+      }
+    }
   }
- }
+
+  // 오버레이 그라데이션
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(37, 99, 235, 0.1),
+      rgba(30, 41, 59, 0.1)
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @media (max-width: 76.8rem) {
+    .hero-swiper {
+      .swiper-pagination {
+        // bottom:33rem;
+
+        .swiper-pagination-bullet {
+          width: $spacing-sm;
+          height: $spacing-sm;
+        }
+      }
+    }
+  }
 }
