@@ -28,12 +28,16 @@ export const getReservationDetail = async (id, userId) => {
 
 export const getReservationsByUser = async (userId) => {
   return await Reservation.find({ userId })
-    .populate("hotelId", "name address")
+    .populate("hotelId", "name address images")
     .populate("roomId", "name type")
     .sort({ createdAt: -1 });
 };
 
-export const cancelReservation = async (id, userId, cancelReason = "사용자 취소") => {
+export const cancelReservation = async (
+  id,
+  userId,
+  cancelReason = "사용자 취소"
+) => {
   const reservation = await Reservation.findOne({ _id: id, userId });
   if (!reservation) {
     const err = new Error("RESERVATION_NOT_FOUND");

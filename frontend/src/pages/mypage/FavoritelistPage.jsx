@@ -6,6 +6,7 @@ import { useFavorites } from "../../context/FavoritesContext";
 const FavoritelistPage = () => {
   const { favorites, loading, removeFavoriteItem } = useFavorites();
 
+  console.log("FavoritelistPage favorites:", favorites);
   if (loading) {
     return (
       <section className="wish-container">
@@ -85,10 +86,12 @@ const FavoritelistPage = () => {
                       </span>
                     </div>
                     <Link
-                      to={`/hotel/${f.hotelId?._id}`}
+                      to={`/booking/${
+                        f.hotelId?.id || f.hotelId?._id
+                      }?guests=2`}
                       className="btn-view-detail"
                     >
-                      상세보기
+                      예약하기
                     </Link>
                   </div>
                 </div>
