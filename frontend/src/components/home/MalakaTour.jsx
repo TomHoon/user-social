@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/components/home/MalakaTour.scss";
+import { Link } from "react-router-dom";
 
 const MalakaTour = ({ hotel }) => {
 //  console.log(hotel);
@@ -11,6 +12,7 @@ const MalakaTour = ({ hotel }) => {
    className="malaka-tour"
    style={{ backgroundImage: `url(${hotel.images?.[0] || ""})` }}
   >
+    <Link to={`/hotels/${hotel._id || hotel.id}`} className="overlay-link">
    <div className="tour-content">
     <h3 className="tour-title">{hotel.name || "숙소"}</h3>
     <div className="tour-price">
@@ -24,6 +26,8 @@ const MalakaTour = ({ hotel }) => {
     </p>
     <button className="btn btn-book-flight">예약하기</button>
    </div>
+    </Link>
+
   </div>
  );
 };

@@ -17,7 +17,7 @@ const HotelReviews = ({
  reviews = [],
  getReviews,
 }) => {
- console.log("HotelReviews reviews:", reviews);
+//  console.log("HotelReviews reviews:", reviews);
  return (
   <div className="hotel-reviews">
    <div className="dep">

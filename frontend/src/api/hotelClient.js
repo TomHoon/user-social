@@ -44,10 +44,8 @@ export const getFeaturedHotels = async (limit = 10) => {
  const response = await axiosInstance.get("/hotels/featured", {
   params: { limit },
  });
- return response.data;
+ return response.data.data;
 };
-
-
 
 export default {
  getHotels,

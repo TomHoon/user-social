@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/components/home/TravelGallery.scss";
+import { Link } from "react-router-dom";
 
 const TravelGallery = ({ hotels }) => {
 //  console.log(hotels);
@@ -11,8 +12,9 @@ const TravelGallery = ({ hotels }) => {
   <div className="travel-gallery">
    <div className="gallery-grid">
     {displayHotels.map((item,i) => (
-     <div
+     <Link
       key={i}
+      to={`/hotels/${item._id || item.id}`}
       className={`gallery-item ${item.className || ""}`}
       style={{ backgroundImage: `url(${item.images?.[0] || ""})` }}
      >
@@ -20,7 +22,7 @@ const TravelGallery = ({ hotels }) => {
        <h4>{item.name}</h4>
        <p>{item.city}</p>
       </div>
-     </div>
+     </Link>
     ))}
    </div>
   </div>

@@ -21,8 +21,8 @@ const SearchPage = () => {
    if (filterParams.type) params.type = filterParams.type;
 
    const data = await getHotels(params);
-   console.log("Fetched hotel sample:", data[0]);
-   console.log("Favorite hotel IDs:", favoriteHotelIds);
+//    console.log("Fetched hotel sample:", data[0]);
+//    console.log("Favorite hotel IDs:", favoriteHotelIds);
    setHotels(data);
   } catch (err) {
    setError(err.message);

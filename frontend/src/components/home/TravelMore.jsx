@@ -36,10 +36,10 @@ const TravelMore = () => {
     </div>
 
     <div className="travel-content">
-     {hotels.data && hotels.data.length > 0 && (
+     {hotels && hotels.length > 0 && (
       <>
-       <MalakaTour hotel={hotels.data[0]} />
-       <TravelGallery hotels={hotels.data} />
+       <MalakaTour hotel={hotels[0]} />
+       <TravelGallery hotels={hotels} />
       </>
      )}
     </div>

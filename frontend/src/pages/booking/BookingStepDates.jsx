@@ -19,8 +19,6 @@ const BookingStepDates = () => {
   const [children, setChildren] = useState(0);
   const [hotel, setHotel] = useState(null);
   const [selectedRoom, setSelectedRoom] = useState(null);
-  console.log("roomId:", roomId);
-  console.log("Current hotel state:", hotel);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,16 +26,16 @@ const BookingStepDates = () => {
         // 호텔 정보 가져오기
         if (hotelId) {
           const hotelData = await getHotelDetail(hotelId);
-          console.log("Fetched hotel data:", hotelData);
-          console.log("Hotel object:", hotelData.hotel);
-          console.log("Hotel images:", hotelData.hotel?.images);
+        //   console.log("Fetched hotel data:", hotelData);
+        //   console.log("Hotel object:", hotelData.hotel);
+        //   console.log("Hotel images:", hotelData.hotel?.images);
           setHotel(hotelData.hotel);
         }
 
         // 객실 정보 가져오기 (roomId가 있는 경우)
         if (roomId) {
           const roomData = await getRoomDetail(roomId);
-          console.log("Fetched room data:", roomData);
+        //   console.log("Fetched room data:", roomData);
           setSelectedRoom(roomData);
         }
       } catch (error) {
