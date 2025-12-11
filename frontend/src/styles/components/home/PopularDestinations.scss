@@ -1,68 +1,88 @@
 @use "../../common/variables" as *;
 @use "../../common/mixins" as *;
-
-// PopularDestinations 스타일 작성
-.destination-card {
-  background-size: cover;
-  background-position: center;
-  border-radius: $border-radius-lg;
-  overflow: hidden;
-  box-shadow: $shadow-md;
-  height: clamp(23rem, 35rem, 45rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  color: white;
+.slider-wrap{
   position: relative;
-  overflow: hidden;
-  cursor: pointer;
-
-  .card-content {
-    background: rgba(0, 0, 0, 0.2);
-    padding: $spacing-md;
-    backdrop-filter: blur(3rem);
-    transition: all 0.3s ease;
-    transform: translateY(100%);
-    // text-align: center;
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
+  // PopularDestinations 스타일 작성
+  .destination-card {
+    background-size: cover;
+    background-position: center;
+    border-radius: $border-radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-md;
+    height: clamp(23rem, 35rem, 45rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  
+    .card-content {
+      background: rgba(0, 0, 0, 0.2);
+      padding: $spacing-md;
+      backdrop-filter: blur(3rem);
+      transition: all 0.3s ease;
+      transform: translateY(100%);
+      // text-align: center;
+      .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+      .destination-name {
+        font-size: $font-size-xl;
+        font-weight: bold;
+        margin-bottom: $spacing-xs;
+      }
+  
+      .destination-country {
+        // font-size: $font-size-md;
+        opacity: 0.9;
+        margin-bottom: $spacing-sm;
+      }
+      .destination-description {
+        font-size: $font-size-sm;
+        opacity: 0.8;
+      }
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        gap: $spacing-sm;
+        .destination-price {
+          font-size: $font-size-lg;
+          font-weight: $font-weight-semibold;
+          color: $color-warning-light;
+          margin: $spacing-sm 0;
+        }
+      }
     }
-    .destination-name {
-      font-size: $font-size-xl;
-      font-weight: bold;
-      margin-bottom: $spacing-xs;
-    }
-
-    .destination-country {
-      // font-size: $font-size-md;
-      opacity: 0.9;
-      margin-bottom: $spacing-sm;
-    }
-    .destination-description {
-      font-size: $font-size-sm;
-      opacity: 0.8;
-    }
-    .card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-direction: column;
-      gap: $spacing-sm;
-      .destination-price {
-        font-size: $font-size-lg;
-        font-weight: $font-weight-semibold;
-        color: $color-warning-light;
-        margin: $spacing-sm 0;
+  
+    &:hover {
+      .card-content {
+        transform: translateY(0);
       }
     }
   }
-
-  &:hover {
-    .card-content {
-      transform: translateY(0);
+  .destinations-nav-btns{
+    .swiper-btn{
+      position: absolute;
+      top:50%;
+      z-index: 9;
+      font-size: 5rem;
+      // width: 3rem;
+      // height: 6rem;
+      // background: rgba(0,0,0);
+      display: block;
+      &.prev{
+        left: -5rem;
+      }
+      &.next{
+        right: -5rem;
+      }
     }
   }
 }

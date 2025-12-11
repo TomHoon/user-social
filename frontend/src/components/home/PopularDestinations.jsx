@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -6,10 +6,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../../styles/components/home/PopularDestinations.scss";
 import DestinationCard from "./DestinationCard";
-import { mockDestinations } from "../../api/mockData";
 import { getHotels } from "../../api/hotelClient";
+import { GrPrevious ,GrNext } from "react-icons/gr";
 
 const PopularDestinations = () => {
+    const prevRef = useRef(null);
+    const nextRef = useRef(null);
  const [featuredHotels, setFeaturedHotels] = useState([]);
  useEffect(() => {
   const fetchFeaturedHotels = async () => {
@@ -33,12 +35,17 @@ const PopularDestinations = () => {
      </div>
      <button className="btn-see-all btn">See All</button>
     </div>
+<div className="slider-wrap">
 
     <Swiper
      modules={[Navigation, Pagination]}
      spaceBetween={20}
+     navigation={{
+      prevEl: prevRef.current,
+      nextEl: nextRef.current,
+     }} 
      slidesPerView={4}
-     navigation
+
      // pagination={{ clickable: true }}
      breakpoints={{
       320: { slidesPerView: 1, spaceBetween: 15 },
@@ -54,7 +61,13 @@ const PopularDestinations = () => {
       </SwiperSlide>
      ))}
     </Swiper>
+    <div className="destinations-nav-btns">
+      <button ref={prevRef} className="swiper-btn prev"><GrPrevious /> </button>
+      <button ref={nextRef} className="swiper-btn next"><GrNext /></button>
+    </div>
    </div>
+</div>
+
   </section>
  );
 };

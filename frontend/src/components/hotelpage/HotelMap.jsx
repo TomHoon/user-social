@@ -14,9 +14,11 @@ const HotelMap = ({ address, location }) => {
  return (
   <div className="hotel-map">
    <div className="map-info">
-    <h3>📍 위치</h3>
-    <p className="address">{address}</p>
-    {location && <p className="location">{location}</p>}
+    <h2> 위치</h2>
+    <div className="address">
+    {address ?<span className="location">{address}</span>:
+    <span className="address-text">{location}</span>}
+    </div>
     <a
      href={mapsLink}
      target="_blank"

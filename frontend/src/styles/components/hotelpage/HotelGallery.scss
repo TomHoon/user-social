@@ -1,3 +1,5 @@
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
 .hotel-gallery {
  // 호텔 갤러리 스타일
 
@@ -5,12 +7,13 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 10px;
-    overflow: hidden;
-
+    
     cursor: pointer;
     .main-image {
       grid-row: 1 / 3;
       height: 500px;
+      overflow: hidden;
+      border-radius: $border-radius-lg;
 
       img {
         width: 100%;
@@ -23,10 +26,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px;
-
       .sub-image {
         position: relative;
         height: 245px;
+        overflow: hidden;
+        border-radius: $border-radius-lg;
 
         img {
           width: 100%;

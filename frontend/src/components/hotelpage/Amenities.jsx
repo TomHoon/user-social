@@ -55,7 +55,7 @@ const Amenities = ({ amenities = [] }) => {
 
  return (
   <div className="amenities">
-   <h3 className="amenities-title">Amenities</h3>
+   <h2 >Amenities</h2>
    <div className="amenities-grid">
     {displayedAmenities.map((amenity, index) => (
      <div key={index} className="amenity-item">

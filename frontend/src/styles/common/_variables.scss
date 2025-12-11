@@ -104,7 +104,7 @@ $gutter-lg: 2rem;
 
 // Border styles
 $border: 0.1rem solid $color-border;
-$border-light: 0.1rem solid rgba($color-border, 0.5);
+$border-light: 0.1rem solid rgba($color-border, 0.2);
 $border-dark: 0.1rem solid color.adjust($color-border, $lightness: -10%);
 
 $border-radius-sm: 0.4rem;
@@ -140,3 +140,4 @@ $gradient-overlay-dark: linear-gradient(
 );
 
 $header-height: 8rem;
+$header-height-mobile: 6rem;

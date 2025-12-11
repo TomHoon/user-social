@@ -34,7 +34,7 @@ const Header = () => {
       <div className="inner">
         {/* 로고 영역 */}
         <h1 className="logo">
-          <Link to="/">W-HOTEL</Link>
+          <Link to="/">W-Hotel</Link>
         </h1>
 
         <div className="right">

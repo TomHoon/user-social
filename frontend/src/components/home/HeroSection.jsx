@@ -14,12 +14,12 @@ const HeroSection = () => {
   const navigate = useNavigate();
   const heroSlides = [
     {
-      title: "신정해보세요",
+      title: "신청해보세요",
       subtitle: "퍼펙트 호텔 및 다양한\n숙소를 확인하세요!",
       description:
-        "컴퓨터를 통해 유용한 예약과 고객 사을 지원 부웅\n함한 북시즈 확인하세요.",
+        "W-Hotel을 통해 유용한 예약과 고객 서비스를 지원하며\n함께하는 당신을 확인하세요.",
       backgroundImage:
-        "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://plus.unsplash.com/premium_photo-1661929519129-7a76946c1d38?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       className: "hero-card-1",
     },
     {
@@ -28,7 +28,7 @@ const HeroSection = () => {
       description:
         "특별한 여행을 위한 완벽한 숙소와\n잊지 못할 추억을 만들어보세요.",
       backgroundImage:
-        "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1920&h=1080&fit=crop",
+        "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       className: "hero-card-2",
     },
     {
@@ -36,11 +36,12 @@ const HeroSection = () => {
       subtitle: "프리미엄 리조트에서\n완벽한 휴식을",
       description: "최고급 시설과 서비스로\n당신만의 특별한 시간을 보내세요.",
       backgroundImage:
-        "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1920&h=1080&fit=crop",
+        "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       className: "hero-card-3",
     },
   ];
 
+  
   return (
     <div className="hero-section">
       <div className="search-btn-wrapper">

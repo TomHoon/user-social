@@ -168,9 +168,9 @@ header {
   }
 
   &.scrolled {
-    background-color: hsla(0, 0%, 100%, 0.52);
+    background-color: hsla(0, 0%, 60%, 0.52);
     box-shadow: $shadow-md;
-    backdrop-filter: blur(5rem);
+    backdrop-filter: blur(2rem);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     .inner {
       border-bottom-color: transparent;

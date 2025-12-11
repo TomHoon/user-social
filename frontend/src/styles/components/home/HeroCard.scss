@@ -1,15 +1,22 @@
 @use "../../common/variables" as *;
 @use "../../common/mixins" as *;
-
-.hero-card {
-  position: relative;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  color: white;
+.inner{
   height: 100%;
-
+}
+  .hero-card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    color: white;
+  height: 100%;
+  @media screen and (max-width:1200px) {
+    padding: 0 $gutter-md;
+      
+    
+  }
+  
   .hero-card-container {
     max-width: $max-width-container;
     margin: 0 auto;
@@ -20,6 +27,10 @@
     justify-content: center;
     position: relative;
     text-align: right;
+      @media screen and (max-width:1200px) {
+   text-align: left;   
+    
+  }
   }
 
   .hero-content {
@@ -36,33 +47,33 @@
       margin-bottom: $spacing-lg;
       line-height: $line-height-tight;
     }
-
+    
     .hero-description {
       font-size: $font-size-section-description;
       line-height: $line-height-relaxed;
       opacity: 0.9;
     }
   }
-
+  
   .search-form {
     background: $color-bg;
     padding: $spacing-xxl;
     border-radius: $border-radius-lg;
     box-shadow: $shadow-lg;
     color: $color-text;
-
+    
     h3 {
       font-size: $font-size-card-title;
       margin-bottom: $spacing-lg;
       color: $color-primary;
     }
-
+    
     .form-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: $spacing-lg;
     }
-
+    
     .form-group {
       label {
         display: block;
@@ -71,7 +82,7 @@
         color: $color-text;
         font-size: $font-size-label;
       }
-
+      
       input,
       select {
         width: 100%;
@@ -86,7 +97,7 @@
           border-color: $color-primary;
         }
       }
-
+      
       .destination-input {
         grid-column: 1 / -1;
       }
@@ -103,7 +114,7 @@
     box-shadow: $shadow-md;
     color: $color-text;
     min-width: 20rem;
-
+    
     .user-info {
       display: flex;
       align-items: center;
@@ -130,7 +141,7 @@
           font-weight: $font-weight-semibold;
           color: $color-text;
         }
-
+        
         .status {
           font-size: $font-size-caption;
           color: $color-text-secondary;
@@ -144,11 +155,11 @@
         cursor: pointer;
         border-bottom: 0.1rem solid $color-border-light;
         transition: color 0.3s ease;
-
+        
         &:hover {
           color: $color-primary;
         }
-
+        
         &:last-child {
           border-bottom: none;
         }
@@ -159,37 +170,37 @@
   // 다양한 배경 테마
   &.hero-card-1 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("/images/hero-bg-1.jpg");
+    url("/images/hero-bg-1.jpg");
   }
 
   &.hero-card-2 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("/images/hero-bg-2.jpg");
+    url("/images/hero-bg-2.jpg");
   }
-
+  
   &.hero-card-3 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("/images/hero-bg-3.jpg");
+    url("/images/hero-bg-3.jpg");
   }
-
+  
   @media (max-width: $breakpoint-md) {
     .hero-card-container {
       grid-template-columns: 1fr;
       gap: $spacing-xxxl;
     }
-
+    
     .hero-content {
       .hero-subtitle {
         font-size: $font-size-xl;
       }
     }
-
+    
     .search-form {
       .form-container {
         grid-template-columns: 1fr;
       }
     }
-
+    
     .user-menu {
       position: relative;
       top: auto;
@@ -198,3 +209,4 @@
     }
   }
 }
+

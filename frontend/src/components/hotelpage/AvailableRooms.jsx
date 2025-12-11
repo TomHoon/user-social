@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const AvailableRooms = ({ rooms, hotelId }) => {
  return (
   <div className="available-rooms">
-   <h3>예약 가능한 객실</h3>
+   <h2>예약 가능한 객실</h2>
    {rooms.map((room) => (
     <div key={room.id} className="room-card">
      <div className="left">
