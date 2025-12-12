@@ -34,7 +34,7 @@ const Header = () => {
       <div className="inner">
         {/* 로고 영역 */}
         <h1 className="logo">
-          <Link to="/">W-Hotel</Link>
+          <Link to="/">Hotel-Hub</Link>
         </h1>
 
         <div className="right">
@@ -118,10 +118,10 @@ const Header = () => {
                 <Link to="/login" className="btn--sm btn--secondary">
                   로그인
                 </Link>
-                <Link to="/signup" className="btn--sm btn--outline">
+                <Link to="/signup" className="link">
                   회원가입
                 </Link>
-                <Link to="/signup" className="btn--sm btn--outline">
+                <Link to="/signup" className="link">
                   비회원 예약 조회
                 </Link>
               </>

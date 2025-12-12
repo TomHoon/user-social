@@ -39,6 +39,9 @@
     height: 1.1em;
     flex: 0 0 auto;
   }
+  @media screen and (max-width:$breakpoint-md) {
+    font-size: $font-size-sm;
+  }
 }
 
 /* 색상 변형 */
@@ -113,9 +116,12 @@
 
 /* 크기/유틸 */
 .btn--sm {
-  padding: $spacing-xs $spacing-sm;
+  padding: $spacing-xxs $spacing-sm;
   border-radius: $border-radius-sm;
   font-size: $font-size-button;
+    @media screen and (max-width:$breakpoint-md) {
+    font-size: $font-size-sm;
+  }
 }
 .btn--lg {
   padding: $spacing-sm $spacing-lg;

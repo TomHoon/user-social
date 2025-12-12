@@ -11,12 +11,12 @@
     align-items: stretch;
   }
 
-  @media (max-width: 768px) {
-    padding: $spacing-xxxl 0;
+  @media (max-width: $breakpoint-md) {
+    padding: $spacing-xxl 0;
 
     .travel-content {
       flex-direction: column;
-      gap: $spacing-xxl;
+      gap: $spacing-md;
     }
   }
 }

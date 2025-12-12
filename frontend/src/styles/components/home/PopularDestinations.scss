@@ -83,6 +83,9 @@
       &.next{
         right: -5rem;
       }
+      @media screen and (max-width:$breakpoint-lg) {
+        display: none;
+      }
     }
   }
 }
