@@ -6,7 +6,7 @@ import FilterSidebar from "../search/FilterSidebar";
 import "../../styles/layouts/SearchLayout.scss";
 import { createReservation } from "../../api/reservationClient";
 
-
+import Footer from "../common/Footer";
 const SearchLayout = () => {
  const [searchParams] = useSearchParams();
  const [filters, setFilters] = useState({
@@ -65,6 +65,7 @@ const SearchLayout = () => {
      </main>
     </div>
    </div>
+   <Footer />
   </section>
  );
 };

@@ -9,9 +9,11 @@
   width: 100%;
   // padding: 0 $gutter;
 }
+
 .top-container {
   // padding-top: $header-height;
 }
+
 h1,
 h2,
 h3,
@@ -20,18 +22,23 @@ h5 {
   font-weight: $font-weight-semibold;
   line-height: 1.2;
 }
+
 .text-muted {
   color: $color-muted;
 }
+
 h1 {
   font-size: $font-size-5xl;
 }
+
 h2 {
   font-size: $font-size-3xl;
 }
+
 h3 {
   font-size: $font-size-2xl;
 }
+
 .btn-primary {
   background: $color-primary;
   color: $color-text-light;
@@ -44,6 +51,7 @@ h3 {
     background: color.scale($color-primary, $lightness: -8%); // ✅ 안정 버전
   }
 }
+
 section {
   header {
     height: $header-height;
@@ -55,10 +63,11 @@ section {
     left: 0;
     width: 100%;
     z-index: 1000;
+
     @media screen and (max-width: $breakpoint-md) {
       padding: 0 $gutter-sm;
-      height: $header-height-mobile;    
-      
+      height: $header-height-mobile;
+
     }
 
     .inner {
@@ -67,16 +76,19 @@ section {
       max-width: $max-width-container;
       margin: 0 auto;
       border-bottom: $border-light;
+
       .tit {
         h2 {
           font-size: clamp($font-size-xl, $font-size-2xl, $font-size-5xl);
         }
+
         p {
           font-size: clamp(1rem, 1.5vw, 2rem);
         }
       }
     }
   }
+
   &.main-layout {
     header {
       background-color: transparent;
@@ -90,33 +102,45 @@ section {
       }
     }
   }
+
   &.mypage-layout,
   &.booking-layout,
   &.hotelpage-layout,
   &.support-layout,
   &.search-layout {
     padding: $gutter-lg 0;
+
     .inner {
       border-bottom-color: $color-border;
+
       h1.logo a {
         color: $color-text;
       }
+
       .user-menu .user-button .user-name {
         color: $color-text;
       }
+
       .btn-wishlist {
         color: $color-text;
       }
+
+      @media screen and (max-width:$breakpoint-md) {
+        // padding: 0 $gutter-md;
+      }
     }
+
     &.search-layout {
       .inner {
         border-bottom-color: transparent;
       }
     }
+
     &.scrolled {
       border-bottom-color: transparent;
     }
   }
+
   .section-header {
     display: flex;
     justify-content: space-between;
@@ -125,27 +149,41 @@ section {
 
     h2 {
       font-size: $font-size-4xl;
-      display: inline-block ;
+      display: inline-block;
       font-weight: 200;
       margin-bottom: $spacing-xs;
       position: relative;
+
       &::after {
         content: "";
         position: absolute;
-        top:  -2rem;
+        top: -2rem;
         right: -2rem;
         width: 2rem;
-        height:2rem;
+        height: 2rem;
         background: $color-primary;
         border-radius: $border-radius-sm;
       }
     }
+
     p {
       font-size: $font-size-sm;
       color: $color-muted;
     }
+
+    @media screen and (max-width: $breakpoint-md) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+
+      p {
+        display: none;
+      }
+
+    }
   }
 }
+
 .logo {
   font-size: $font-size-lg;
   font-weight: $font-weight-bold;

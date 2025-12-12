@@ -34,8 +34,10 @@ const FilterSidebar = ({ filters, onFilterChange }) => {
    {/* Rating */}
    <div className="filter-section">
     <h4 className="section-title">Rating</h4>
+    <div>
+
     {[5, 4, 3, 2, 1].map((rating) => (
-     <label key={rating} className="filter-checkbox">
+        <label key={rating} className="filter-checkbox">
       <input
        type="checkbox"
        checked={filters.rating.includes(rating)}
@@ -49,13 +51,16 @@ const FilterSidebar = ({ filters, onFilterChange }) => {
       <span>{rating}+</span>
      </label>
     ))}
+    </div>
    </div>
 
    {/* Freebies */}
    <div className="filter-section">
     <h4 className="section-title">Freebies</h4>
+    <div>
+
     {["무료조식", "무료주차", "WiFi", "고객센터24", "무료픽업"].map(
-     (freebie) => (
+        (freebie) => (
       <label key={freebie} className="filter-checkbox">
        <input
         type="checkbox"
@@ -71,13 +76,16 @@ const FilterSidebar = ({ filters, onFilterChange }) => {
       </label>
      )
     )}
+    </div>
    </div>
 
    {/* Amenities */}
    <div className="filter-section">
     <h4 className="section-title">Amenities</h4>
+    <div>
+
     {["24시 프론트데스크", "에어컨", "피트니스", "수영장"].map((amenity) => (
-     <label key={amenity} className="filter-checkbox">
+        <label key={amenity} className="filter-checkbox">
       <input
        type="checkbox"
        value={amenity}
@@ -92,6 +100,7 @@ const FilterSidebar = ({ filters, onFilterChange }) => {
       <span>{amenity}</span>
      </label>
     ))}
+    </div>
    </div>
   </aside>
  );

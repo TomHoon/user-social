@@ -1,15 +1,46 @@
 @use "../../common/variables" as *;
 
+
 .filter-sidebar {
- width: 280px;
- flex-shrink: 0;
- background: $color-bg;
- border: 1px solid $color-border;
- border-radius: $border-radius-lg;
- padding: 2rem;
- height: fit-content;
- position: sticky;
- top: 2rem;
+    width: 280px;
+    flex-shrink: 0;
+    background: $color-bg;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-lg;
+    padding: 2rem;
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+
+    // 태블릿 이하: 가로폭, 패딩 축소
+    @media screen and (max-width: $breakpoint-md) {
+        width: 100%;
+        position: static;
+        padding: $spacing-md;
+        margin-bottom: $spacing-md;
+        border-radius: $border-radius-md;
+    }
+
+    // 모바일: 패딩, 폰트, 여백 더 축소
+    @media screen and (max-width: $breakpoint-xs) {
+        padding: $spacing-sm;
+        .filter-title {
+            font-size: $font-size-lg;
+            margin-bottom: $spacing-sm;
+        }
+        .filter-section {
+            margin-bottom: $spacing-sm;
+            padding-bottom: $spacing-xs;
+            .section-title {
+                font-size: $font-size-sm;
+            }
+            &>div{
+                display: flex;
+                flex-wrap: wrap;
+                gap:$spacing-sm;
+            }
+        }
+    }
 
  .filter-title {
   font-size: 2rem;

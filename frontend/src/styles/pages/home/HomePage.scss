@@ -12,7 +12,12 @@
   
   
   // 반응형 디자인
-  @media (max-width: 76.8rem) {
+  @media (max-width:$breakpoint-md) {
+    .container {
+      padding:$spacing-section $spacing-sm;
+    }
+  }
+  @media (max-width:$breakpoint-xs) {
     .container {
       padding:$spacing-xxxl $spacing-sm;
     }

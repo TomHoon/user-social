@@ -19,8 +19,8 @@ const HeroCard = ({
    <div className="inner">
     <div className="hero-card-container">
      <div className="hero-content">
-      <h1 className="hero-title">{title}</h1>
-      <h2 className="hero-subtitle">{subtitle}</h2>
+      <h2>{title}</h2>
+      <p className="hero-subtitle">{subtitle}</p>
       <p className="hero-description">{description}</p>
      </div>
     </div>
