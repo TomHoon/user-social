@@ -125,7 +125,7 @@ section {
 
     h2 {
       font-size: $font-size-4xl;
-
+      display: inline-block ;
       font-weight: 200;
       margin-bottom: $spacing-xs;
       position: relative;
@@ -133,7 +133,7 @@ section {
         content: "";
         position: absolute;
         top:  -2rem;
-        left: -2rem;
+        right: -2rem;
         width: 2rem;
         height:2rem;
         background: $color-primary;

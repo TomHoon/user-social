@@ -15,6 +15,9 @@ header {
       display: flex;
       align-items: center;
       gap: $spacing-md;
+      .btn--sm {
+        color:$color-bg;
+      }
     }
 
     .user-menu {
@@ -168,14 +171,14 @@ header {
   }
 
   &.scrolled {
-    background-color: hsla(0, 0%, 60%, 0.52);
+    background-color: hsla(0, 0%, 43%, 0.52);
     box-shadow: $shadow-md;
     backdrop-filter: blur(2rem);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     .inner {
       border-bottom-color: transparent;
       .logo a {
-        color: $color-primary;
+        // color: $color-primary;
       }
       .btn-wishlist {
         color: $color-text;

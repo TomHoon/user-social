@@ -31,7 +31,7 @@
   align-items: center;
   justify-content: center;
   // padding: $spacing-xxxl $spacing-lg;
-  background: $color-bg;
+//   background: $color-bg;
  }
 
  .auth-layout-image-section {
@@ -39,6 +39,14 @@
   position: relative;
   overflow: hidden;
   background: $gradient-gray-medium;
+  .login-image-section{
+      height: 100%;
+      .swiper {
+          
+          height: 100%;
+      }
+
+  }
 
   .auth-layout-image-wrapper {
    width: 100%;
