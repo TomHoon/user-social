@@ -39,6 +39,16 @@ h3 {
   font-size: $font-size-2xl;
 }
 
+.logo {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-light;
+
+  &::before {
+    content: "🏨";
+    margin-right: $spacing-sm;
+  }
+}
 .btn-primary {
   background: $color-primary;
   color: $color-text-light;
@@ -52,12 +62,12 @@ h3 {
   }
 }
 
+// header styles
 section {
   header {
     height: $header-height;
-    background: $color-bg;
     backdrop-filter: blur(10rem);
-    background-color: rgba(255, 255, 255, 0.44);
+    background-color: rgba(212, 212, 212, 0.44);
     position: fixed;
     top: 0;
     left: 0;
@@ -89,14 +99,14 @@ section {
     }
   }
 
-  &.main-layout {
+  &.main-layout { 
     header {
       background-color: transparent;
       backdrop-filter: none;
       border-bottom-color: transparent;
 
       &.scrolled {
-        background-color: hsla(0, 0%, 100%, 0.2);
+        background-color: hsla(0, 0%, 42%, 0.2);
         box-shadow: $shadow-md;
         backdrop-filter: blur(3rem);
       }
@@ -109,14 +119,14 @@ section {
   &.support-layout,
   &.search-layout {
     padding: $gutter-lg 0;
-
+    background-color: $color-bg;
     .inner {
       border-bottom-color: $color-border;
 
       h1.logo a {
         color: $color-text;
       }
-
+  .btn--sm,
       .user-menu .user-button .user-name {
         color: $color-text;
       }
@@ -181,16 +191,5 @@ section {
       }
 
     }
-  }
-}
-
-.logo {
-  font-size: $font-size-lg;
-  font-weight: $font-weight-bold;
-  color: $color-text-light;
-
-  &::before {
-    content: "🏨";
-    margin-right: $spacing-sm;
   }
 }

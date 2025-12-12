@@ -9,19 +9,13 @@ header {
     height: $header-height;
     position: relative;
 
-    h1.logo a {
-      font-size: $font-size-2xl;
-      color: $color-bg;
-    }
 
     .right {
       display: flex;
       align-items: center;
       gap: $spacing-md;
 
-      .btn--sm {
-        color: $color-bg;
-      }
+
     }
 
     .user-menu {
@@ -211,28 +205,6 @@ header {
     font-size: $font-size-xs;
   }
 
-  &.scrolled {
-    background-color: hsla(0, 0%, 43%, 0.52);
-    box-shadow: $shadow-md;
-    backdrop-filter: blur(2rem);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
-    .inner {
-      border-bottom-color: transparent;
-
-      .logo a {
-        // color: $color-primary;
-      }
-
-      .btn-wishlist {
-        color: $color-text;
-      }
-    }
-
-    .user-menu .user-button .user-name {
-      color: $color-text;
-    }
-  }
 
   @media screen and (max-width:$breakpoint-lg) {
     .inner {
