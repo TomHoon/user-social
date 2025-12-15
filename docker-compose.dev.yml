@@ -22,18 +22,25 @@ services:
   ports:
    - "3000:3000"
   environment:
-   PORT: 3000
-   MONGO_URI: mongodb://root:pass123@mongodb:27017/hotel-project?authSource=admin
-   JWT_SECRET: your-super-secret-jwt-key-change-this-in-production
-   JWT_EXPIRES_IN: 7d
-   NODE_ENV: development
+      PORT: 3000
+      MONGO_URI: mongodb://root:pass123@mongodb:27017/hotel-project?authSource=admin
+      JWT_SECRET: your-super-secret-jwt-key-change-this-in-production
+      JWT_EXPIRES_IN: 7d
+      NODE_ENV: development
+      # ✅ 수정 및 추가된 소셜 로그인 환경 변수 (Key: Value 형식)
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
+      # 콜백 URL은 .env 파일 대신 여기에 문자열로 정의했습니다.
+      GOOGLE_CALLBACK_URI: http://localhost:3000/api/auth/google/callback
+      KAKAO_CLIENT_ID: ${KAKAO_CLIENT_ID}
+      KAKAO_CALLBACK_URI: http://localhost:3000/api/auth/kakao/callback
   volumes:
-   - ./backend:/app
-   - /app/node_modules
+      - ./backend:/app
+      - /app/node_modules
   networks:
-   - app-net
+      - app-net
   depends_on:
-   - mongodb
+      - mongodb
   command: npm run dev
 
  frontend:

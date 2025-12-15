@@ -12,6 +12,7 @@ header {
   .right {
    display: flex;
    gap: $spacing-md;
+   align-items: center;
    .auth-links {
      align-items: center;
      display: flex;

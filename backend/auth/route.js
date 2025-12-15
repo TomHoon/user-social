@@ -5,6 +5,8 @@ import {
   me,
   kakaoRedirect,
   kakaoCallback,
+  googleRedirect,
+  googleCallback,
 } from "./controller.js";
 import { verifyToken } from "../common/authMiddleware.js";
 
@@ -15,5 +17,7 @@ router.post("/login", login);
 router.get("/me", verifyToken, me);
 router.get("/kakao", kakaoRedirect);
 router.get("/kakao/callback", kakaoCallback);
+router.get("/google", googleRedirect);
+router.get("/google/callback", googleCallback);
 
 export default router;

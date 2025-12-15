@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { registerUser } from "../../api/userClient";
-
+import { RiKakaoTalkFill } from "react-icons/ri";
+import { RiGoogleFill } from "react-icons/ri";
 const SignupForm = () => {
   const [formData, setFormData] = useState({
     nickname: "",
@@ -221,26 +222,20 @@ const SignupForm = () => {
         <div className="social-login">
           <p className="social-signup-text">Or Sign up with</p>
           <div className="social-buttons">
-            <button
-              type="button"
-              className="btn--social facebook"
-              onClick={() => handleSocialSignup("facebook")}
-            >
-              <span className="social-icon">f</span>
-            </button>
+
             <button
               type="button"
               className="btn--social google "
               onClick={() => handleSocialSignup("google")}
             >
-              <span className="social-icon">G</span>
+             <RiGoogleFill />
             </button>
             <button
               type="button"
               className="btn--social apple"
               onClick={() => handleSocialSignup("apple")}
             >
-              <span className="social-icon">🍎</span>
+          <RiKakaoTalkFill />
             </button>
           </div>
         </div>
