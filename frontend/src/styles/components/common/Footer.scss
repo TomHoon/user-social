@@ -14,15 +14,27 @@ footer {
       max-width: $max-width-container;
       margin: 0 auto;
       padding: 0 $spacing-lg;
-      display: grid;
-      grid-template-columns: 1fr 2fr 1fr;
+      display: flex;
+      justify-content: space-between;
       gap: $spacing-section;
       align-items: start;
+
+      @media screen and (max-width: $breakpoint-xl) {
+        flex-direction: column;
+        // align-items: center;
+        text-align: left;
+        gap: $spacing-xl;
+      }
 
       .social-links {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+
+        @media screen and (max-width: $breakpoint-xl) {
+          text-align: left;
+          align-items: flex-start;
+        }
 
         .description {
           font-size: $font-size-card-description;
@@ -57,12 +69,15 @@ footer {
             &.facebook::before {
               content: "f";
             }
+
             &.twitter::before {
               content: "t";
             }
+
             &.youtube::before {
               content: "y";
             }
+
             &.instagram::before {
               content: "i";
             }
@@ -74,6 +89,12 @@ footer {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: $spacing-xxxl;
+
+        @media screen and (max-width: $breakpoint-xl) {
+          // grid-template-columns: repeat(2, 1fr);
+          // gap: $spacing-xl;
+          width: 100%;
+        }
 
         .link-column {
           h4 {
@@ -139,9 +160,11 @@ footer {
             &.facebook::before {
               content: "📘";
             }
+
             &.instagram::before {
               content: "📷";
             }
+
             &.youtube::before {
               content: "📺";
             }
@@ -163,6 +186,7 @@ footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
 
       .footer-info {
         display: flex;
@@ -197,7 +221,7 @@ footer {
     .footer-links .inner {
       grid-template-columns: 1fr;
       gap: $spacing-xxxl;
-      text-align: center;
+      // text-align: center;
 
       .link-columns {
         grid-template-columns: repeat(2, 1fr);
@@ -205,7 +229,7 @@ footer {
       }
 
       .social-links {
-        align-items: center;
+        // align-items: center;
 
         .social-icons {
           justify-content: center;
@@ -228,13 +252,31 @@ footer {
     }
   }
 
-  @media (max-width: 48rem) {
+  @media (max-width: $breakpoint-sm) {
     .footer-links {
       padding: $spacing-xxxl 0 $spacing-xxl;
 
-      .inner .link-columns {
-        grid-template-columns: 1fr;
-        gap: $spacing-xl;
+      .inner {
+        .link-columns {
+          
+                      grid-template-columns: 1fr;
+                      gap: $spacing-md;
+          .link-column {
+
+            h4 {
+              margin-bottom: 0;
+              font-size: $font-size-sm;
+            }
+
+            ul {
+              display: none;
+            }
+          }
+        }
+
+        .follow-us {
+          width: 100%;
+        }
       }
     }
   }
