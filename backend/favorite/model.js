@@ -4,8 +4,18 @@ const { Schema } = mongoose;
 
 const favoriteSchema = new Schema(
   {
-    userId: { type: Schema.Types.ObjectId, ref: "User", required: true, index: true },
-    hotelId: { type: Schema.Types.ObjectId, ref: "Hotel", required: true, index: true },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+      index: true,
+    },
+    hotelId: {
+      type: Schema.Types.ObjectId,
+      ref: "Hotel",
+      required: true,
+      index: true,
+    },
   },
   { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );

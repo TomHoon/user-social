@@ -1,22 +1,50 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { DayPicker } from "react-day-picker";
-import { ko } from "date-fns/locale";
+import { ko, ro } from "date-fns/locale";
 import { format } from "date-fns";
 import "react-day-picker/dist/style.css";
 import "../../styles/components/booking/BookingStepDates.scss";
+import { getRoomDetail } from "../../api/roomClient";
+import { getHotelDetail } from "../../api/hotelClient";
 
 const BookingStepDates = () => {
   const { hotelId } = useParams();
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const roomId = searchParams.get("roomId");
+  const navigate = useNavigate();
 
   const [range, setRange] = useState({ from: undefined, to: undefined });
   const [adults, setAdults] = useState(2);
   const [children, setChildren] = useState(0);
   const [hotel, setHotel] = useState(null);
+  const [selectedRoom, setSelectedRoom] = useState(null);
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // 호텔 정보 가져오기
+        if (hotelId) {
+          const hotelData = await getHotelDetail(hotelId);
+        //   console.log("Fetched hotel data:", hotelData);
+        //   console.log("Hotel object:", hotelData.hotel);
+        //   console.log("Hotel images:", hotelData.hotel?.images);
+          setHotel(hotelData.hotel);
+        }
+
+        // 객실 정보 가져오기 (roomId가 있는 경우)
+        if (roomId) {
+          const roomData = await getRoomDetail(roomId);
+        //   console.log("Fetched room data:", roomData);
+          setSelectedRoom(roomData);
+        }
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+    };
+
+    fetchData();
+
     // URL 파라미터에서 데이터 가져오기
     const checkIn = searchParams.get("checkIn");
     const checkOut = searchParams.get("checkOut");
@@ -29,17 +57,7 @@ const BookingStepDates = () => {
       });
     }
     if (guests) setAdults(parseInt(guests));
-
-    // TODO: 호텔 정보 API 호출
-    setHotel({
-      _id: hotelId,
-      name: "그랜드 호텔 서울",
-      image:
-        "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400",
-      rating: 4.5,
-    });
-  }, [hotelId, searchParams]);
-
+  }, [hotelId, roomId, searchParams]);
   const calculateNights = () => {
     if (!range?.from || !range?.to) return 0;
     const diffTime = Math.abs(range.to - range.from);
@@ -66,7 +84,7 @@ const BookingStepDates = () => {
         {hotel && (
           <div className="hotel-info">
             <span className="hotel-name">{hotel.name}</span>
-            <span>⭐ {hotel.rating}</span>
+            <span>⭐ {hotel.ratingAverage || 4.5}</span>
           </div>
         )}
       </div>
@@ -129,49 +147,58 @@ const BookingStepDates = () => {
         </div>
 
         <div className="booking-summary">
-            {hotel && (
-              <div className="summary-hotel">
-                <img src={hotel.image} alt={hotel.name} />
-                <div className="detail-row">
-
-                  <div className="ditail-in">
-                    <span className="label">체크인</span>
-                    <span className="value">
-                      {range?.from
-                        ? format(range.from, "PPP", { locale: ko })
-                        : "-"}
-                    </span>
+          {hotel && (
+            <div className="summary-hotel">
+              {hotel.images && hotel.images.length > 0 ? (
+                <img
+                  src={hotel.images[0]}
+                  alt={hotel.name}
+                  onError={(e) => {
+                    console.error("Image failed to load:", hotel.images[0]);
+                  }}
+                />
+              ) : (
+                <div className="no-image">이미지 없음</div>
+              )}
+              <div className="detail-row">
+                <div className="ditail-in">
+                  <span className="label">체크인</span>
+                  <span className="value">
+                    {range?.from
+                      ? format(range.from, "PPP", { locale: ko })
+                      : "-"}
+                  </span>
+                </div>
+                <div className="ditail-in">
+                  <span className="label">체크아웃</span>
+                  <span className="value">
+                    {range?.to ? format(range.to, "PPP", { locale: ko }) : "-"}
+                  </span>
+                </div>
+                <div className="ditail-in">
+                  <div>
+                    <span className="label">숙박 기간</span>
+                    <span className="value">{calculateNights()}박</span>
                   </div>
-                  <div className="ditail-in">
-                    <span className="label">체크아웃</span>
+                  <div>
+                    <span className="label">투숙객 정보</span>
                     <span className="value">
-                      {range?.to ? format(range.to, "PPP", { locale: ko }) : "-"}
+                      {adults}명 성인, {children}명 어린이
                     </span>
-                  </div>
-                  <div className="ditail-in">
-                    <div>
-                      <span className="label">숙박 기간</span>
-                      <span className="value">{calculateNights()}박</span>
-                    </div>
-                    <div>
-                      <span className="label">투숙객 정보</span>
-                      <span className="value">
-                        {adults}명 성인, {children}명 어린이
-                      </span>
-                    </div>
                   </div>
                 </div>
               </div>
-            )}
+            </div>
+          )}
 
-            <button
-              className="btn-continue"
-              onClick={handleContinue}
-              disabled={!range?.from || !range?.to}
-            >
-              객실 선택하기
-            </button>
-          </div>
+          <button
+            className="btn-continue"
+            onClick={handleContinue}
+            disabled={!range?.from || !range?.to}
+          >
+            객실 선택하기
+          </button>
+        </div>
       </div>
     </div>
   );

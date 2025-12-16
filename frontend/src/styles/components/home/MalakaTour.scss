@@ -1,11 +1,11 @@
-@use "../../common/variables";
-@use "../../common/mixins";
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
 
 .malaka-tour {
- background: linear-gradient(135deg, #a8e6cf, #88d8a3);
- border-radius: 20px;
- padding: 40px;
- color: white;
+ // background: linear-gradient(135deg, #a8e6cf, #88d8a3);
+ border-radius: $border-radius-lg;
+ padding: $spacing-xxl;
+ color: $color-text-light;
  flex: 1;
  min-height: 400px;
  display: flex;
@@ -15,43 +15,43 @@
   width: 100%;
 
   .tour-title {
-   font-size: 2.5rem;
-   font-weight: bold;
-   margin-bottom: 20px;
-   line-height: 1.2;
+   font-size: $font-size-section-subtitle;
+   font-weight: $font-weight-bold;
+   margin-bottom: $spacing-lg;
+   line-height: $line-height-tight;
   }
 
   .tour-price {
-   margin-bottom: 30px;
+   margin-bottom: $spacing-xxl;
 
    .price-label {
-    font-size: 1rem;
+    font-size: $font-size-base;
     opacity: 0.9;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: $spacing-xs;
    }
 
    .price-amount {
-    font-size: 3rem;
-    font-weight: bold;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
    }
   }
 
   .tour-description {
-   line-height: 1.6;
-   margin-bottom: 30px;
+   line-height: $line-height-base;
+   margin-bottom: $spacing-xxl;
    opacity: 0.95;
-   font-size: 0.95rem;
+   font-size: $font-size-sm;
   }
 
   .book-flight-btn {
-   background: white;
+   background: $color-text-light;
    color: #88d8a3;
    border: none;
-   padding: 15px 30px;
-   border-radius: 10px;
-   font-size: 1.1rem;
-   font-weight: 600;
+   padding: $spacing-md $spacing-xxl;
+   border-radius: $border-radius-md;
+   font-size: $font-size-button;
+   font-weight: $font-weight-semibold;
    cursor: pointer;
    transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -63,19 +63,19 @@
  }
 
  @media (max-width: 768px) {
-  padding: 30px 20px;
+  padding: $spacing-xxl $spacing-lg;
 
   .tour-content {
    .tour-title {
-    font-size: 2rem;
+    font-size: $font-size-2xl;
    }
 
    .tour-price .price-amount {
-    font-size: 2.5rem;
+    font-size: $font-size-3xl;
    }
 
    .tour-description {
-    font-size: 0.9rem;
+    font-size: $font-size-xs;
    }
   }
  }

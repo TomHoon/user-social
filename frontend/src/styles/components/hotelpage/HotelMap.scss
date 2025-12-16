@@ -3,5 +3,12 @@
 
 .hotel-map {
  // 호텔 지도 스타일
-     padding: $spacing-section 0 0;
+     padding: $spacing-section 0 ;
+     .map-info{
+         display: flex;
+         gap: 1rem;
+         flex-direction: column;
+         font-size: $font-size-lg;
+         color: $color-text;
+     }
 }

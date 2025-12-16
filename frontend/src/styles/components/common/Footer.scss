@@ -1,252 +1,241 @@
-@use "../../common/variables";
-@use "../../common/mixins";
+@use "../../common/variables" as *;
+@use "../../common/mixins" as *;
+@use "sass:color";
 
 footer {
- background-color: #2c2c2c;
- color: white;
+  background-color: $color-bg-dark;
+  color: $color-text-light;
 
- .footer-links {
-  background-color: #2c2c2c;
-  padding: 60px 0 40px;
-
-  .inner {
-   max-width: 1200px;
-   margin: 0 auto;
-   padding: 0 20px;
-   display: grid;
-   grid-template-columns: 1fr 2fr 1fr;
-   gap: 60px;
-   align-items: start;
-
-   .social-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    .logo {
-     font-size: 1.8rem;
-     font-weight: bold;
-     margin-bottom: 20px;
-     color: white;
-
-     &::before {
-      content: "🏨";
-      margin-right: 10px;
-     }
-    }
-
-    .description {
-     font-size: 0.9rem;
-     line-height: 1.6;
-     color: #ccc;
-     margin-bottom: 30px;
-    }
-
-    .social-icons {
-     display: flex;
-     gap: 15px;
-
-     .social-link {
-      width: 36px;
-      height: 36px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: #ccc;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-
-      &:hover {
-       background: rgba(255, 255, 255, 0.2);
-       color: white;
-       transform: translateY(-2px);
-      }
-
-      &.facebook::before {
-       content: "f";
-      }
-      &.twitter::before {
-       content: "t";
-      }
-      &.youtube::before {
-       content: "y";
-      }
-      &.instagram::before {
-       content: "i";
-      }
-     }
-    }
-   }
-
-   .link-columns {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-
-    .link-column {
-     h4 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: white;
-     }
-
-     ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-
-      li {
-       margin-bottom: 12px;
-
-       a {
-        color: #ccc;
-        text-decoration: none;
-        font-size: 0.9rem;
-        line-height: 1.4;
-        transition: color 0.3s ease;
-
-        &:hover {
-         color: white;
-        }
-       }
-      }
-     }
-    }
-   }
-
-   .follow-us {
-    .follow-title {
-     font-size: 1.1rem;
-     font-weight: 600;
-     margin-bottom: 20px;
-     color: white;
-    }
-
-    .follow-icons {
-     display: flex;
-     gap: 12px;
-
-     .follow-link {
-      width: 36px;
-      height: 36px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: #ccc;
-      transition: all 0.3s ease;
-
-      &:hover {
-       background: rgba(255, 255, 255, 0.2);
-       color: white;
-      }
-
-      &.facebook::before {
-       content: "📘";
-      }
-      &.instagram::before {
-       content: "📷";
-      }
-      &.youtube::before {
-       content: "📺";
-      }
-     }
-    }
-   }
-  }
- }
-
- .footer-bottom {
-  background-color: #1a1a1a;
-  padding: 20px 0;
-  border-top: 1px solid #404040;
-
-  .inner {
-   max-width: 1200px;
-   margin: 0 auto;
-   padding: 0 20px;
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-
-   .footer-info {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-
-    .company-info {
-     font-size: 0.8rem;
-     color: #999;
-     line-height: 1.4;
-    }
-
-    .copyright {
-     font-size: 0.8rem;
-     color: #666;
-    }
-   }
-
-   .footer-contact {
-    text-align: right;
-
-    .contact-info {
-     font-size: 0.8rem;
-     color: #999;
-     line-height: 1.4;
-    }
-   }
-  }
- }
-
- @media (max-width: 768px) {
-  .footer-links .inner {
-   grid-template-columns: 1fr;
-   gap: 40px;
-   text-align: center;
-
-   .link-columns {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-   }
-
-   .social-links {
-    align-items: center;
-
-    .social-icons {
-     justify-content: center;
-    }
-   }
-
-   .follow-us .follow-icons {
-    justify-content: center;
-   }
-  }
-
-  .footer-bottom .inner {
-   flex-direction: column;
-   gap: 15px;
-   text-align: center;
-
-   .footer-contact {
-    text-align: center;
-   }
-  }
- }
-
- @media (max-width: 480px) {
   .footer-links {
-   padding: 40px 0 30px;
+    background-color: $color-bg-dark;
+    padding: $spacing-section 0 $spacing-xxxl;
 
-   .inner .link-columns {
-    grid-template-columns: 1fr;
-    gap: 25px;
-   }
+    .inner {
+      max-width: $max-width-container;
+      margin: 0 auto;
+      padding: 0 $spacing-lg;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: $spacing-section;
+      align-items: start;
+
+      .social-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .description {
+          font-size: $font-size-card-description;
+          line-height: $line-height-relaxed;
+          color: $color-text-muted;
+          margin-bottom: $spacing-xxl;
+        }
+
+        .social-icons {
+          display: flex;
+          gap: $spacing-md;
+
+          .social-link {
+            width: $spacing-xxxl;
+            height: $spacing-xxxl;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: $border-radius-sm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: $color-text-muted;
+            font-size: $font-size-lg;
+            transition: all 0.3s ease;
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.2);
+              color: $color-text-light;
+              transform: translateY(-0.2rem);
+            }
+
+            &.facebook::before {
+              content: "f";
+            }
+            &.twitter::before {
+              content: "t";
+            }
+            &.youtube::before {
+              content: "y";
+            }
+            &.instagram::before {
+              content: "i";
+            }
+          }
+        }
+      }
+
+      .link-columns {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-xxxl;
+
+        .link-column {
+          h4 {
+            font-size: $font-size-lg;
+            font-weight: $font-weight-semibold;
+            margin-bottom: $spacing-lg;
+            color: $color-text-light;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+              margin-bottom: $spacing-sm;
+
+              a {
+                color: $color-text-muted;
+                text-decoration: none;
+                font-size: $font-size-card-description;
+                line-height: $line-height-base;
+                transition: color 0.3s ease;
+
+                &:hover {
+                  color: $color-text-light;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .follow-us {
+        .follow-title {
+          font-size: $font-size-lg;
+          font-weight: $font-weight-semibold;
+          margin-bottom: $spacing-lg;
+          color: $color-text-light;
+        }
+
+        .follow-icons {
+          display: flex;
+          gap: $spacing-sm;
+
+          .follow-link {
+            width: $spacing-xxxl;
+            height: $spacing-xxxl;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: $border-radius-sm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: $color-text-muted;
+            transition: all 0.3s ease;
+
+            &:hover {
+              background: rgba(255, 255, 255, 0.2);
+              color: $color-text-light;
+            }
+
+            &.facebook::before {
+              content: "📘";
+            }
+            &.instagram::before {
+              content: "📷";
+            }
+            &.youtube::before {
+              content: "📺";
+            }
+          }
+        }
+      }
+    }
   }
- }
+
+  .footer-bottom {
+    background-color: color.adjust($color-bg-dark, $lightness: -5%);
+    padding: $spacing-lg 0;
+    border-top: 0.1rem solid $color-border-dark;
+
+    .inner {
+      max-width: $max-width-container;
+      margin: 0 auto;
+      padding: 0 $spacing-lg;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .footer-info {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-xs;
+
+        .company-info {
+          font-size: $font-size-caption;
+          color: $color-text-muted;
+          line-height: $line-height-base;
+        }
+
+        .copyright {
+          font-size: $font-size-caption;
+          color: $color-text-secondary;
+        }
+      }
+
+      .footer-contact {
+        text-align: right;
+
+        .contact-info {
+          font-size: $font-size-caption;
+          color: $color-text-muted;
+          line-height: $line-height-base;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-md) {
+    .footer-links .inner {
+      grid-template-columns: 1fr;
+      gap: $spacing-xxxl;
+      text-align: center;
+
+      .link-columns {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-xxl;
+      }
+
+      .social-links {
+        align-items: center;
+
+        .social-icons {
+          justify-content: center;
+        }
+      }
+
+      .follow-us .follow-icons {
+        justify-content: center;
+      }
+    }
+
+    .footer-bottom .inner {
+      flex-direction: column;
+      gap: $spacing-md;
+      text-align: center;
+
+      .footer-contact {
+        text-align: center;
+      }
+    }
+  }
+
+  @media (max-width: 48rem) {
+    .footer-links {
+      padding: $spacing-xxxl 0 $spacing-xxl;
+
+      .inner .link-columns {
+        grid-template-columns: 1fr;
+        gap: $spacing-xl;
+      }
+    }
+  }
 }

@@ -3,15 +3,15 @@
 
 /* 라벨 + 헬프텍스트 포함한 그룹 */
 .form-group {
-  margin-bottom: 1.6rem;
+  margin-bottom: $spacing-md;
   label {
     display: inline-block;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
+    margin-bottom: $spacing-xs;
+    font-weight: $font-weight-semibold;
   }
   .help-text {
-    margin-top: 0.6rem;
-    font-size: 1.2rem;
+    margin-top: $spacing-xs;
+    font-size: $font-size-caption;
     color: $color-muted;
   }
 }
@@ -21,10 +21,10 @@ input,
 textarea,
 select {
   width: 100%;
-  padding: 1rem 1.2rem;
+  padding: $spacing-sm $spacing-sm;
   border-radius: $border-radius-sm;
   border: 0.1rem solid $color-border;
-  background: #fff;
+  background: $color-text-light;
   color: $color-secondary;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 
@@ -36,7 +36,7 @@ select {
     outline: none;
     border-color: $color-primary;
     box-shadow: 0 0 0 0.3rem rgba($color-primary, 0.15);
-    background: #fff;
+    background: $color-text-light;
   }
 
   &:disabled {
@@ -44,25 +44,25 @@ select {
     color: $color-muted;
     cursor: not-allowed;
   }
-  }
-  .label,
+}
+.label,
 label {
-  font-size: 1.4rem;
+  font-size: $font-size-button;
 }
 .value {
-  font-size: 1.4rem;
-  font-weight: 700;
+  font-size: $font-size-button;
+  font-weight: $font-weight-bold;
 }
 /* 높이 조정 */
 .input--sm {
-  padding: 0.7rem 1rem;
-  border-radius: 0.8rem;
-  font-size: 1.4rem;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-button;
 }
 .input--lg {
-  padding: 1.2rem 1.4rem;
-  border-radius: 1.2rem;
-  font-size: 1.8rem;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  font-size: $font-size-lg;
 }
 textarea {
   min-height: 12rem;
@@ -71,39 +71,39 @@ textarea {
 
 /* 셀렉트 기본 화살표(브라우저 기본 사용) 커스텀 필요 시 별도 구성 */
 select {
-  background-color: #fff;
+  background-color: $color-text-light;
 }
 
 /* 유효성 상태 */
 .is-invalid {
-  border-color: #ef4444 !important;
-  box-shadow: 0 0 0 0.3rem rgba(#ef4444, 0.15) !important;
+  border-color: $color-error !important;
+  box-shadow: 0 0 0 0.3rem rgba($color-error, 0.15) !important;
 }
 .is-valid {
-  border-color: #10b981 !important;
-  box-shadow: 0 0 0 0.3rem rgba(#10b981, 0.15) !important;
+  border-color: $color-success !important;
+  box-shadow: 0 0 0 0.3rem rgba($color-success, 0.15) !important;
 }
 .form-error {
-  color: #ef4444;
-  font-size: 1.2rem;
-  margin-top: 0.6rem;
+  color: $color-error;
+  font-size: $font-size-caption;
+  margin-top: $spacing-xs;
 }
 .form-success {
-  color: #10b981;
-  font-size: 1.2rem;
-  margin-top: 0.6rem;
+  color: $color-success;
+  font-size: $font-size-caption;
+  margin-top: $spacing-xs;
 }
 
 /* 체크박스/라디오 (심플) */
 .control {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
+  gap: $spacing-xs;
 
   input[type="checkbox"],
   input[type="radio"] {
-    width: 1.6rem;
-    height: 1.6rem;
+    width: $spacing-md;
+    height: $spacing-md;
     accent-color: $color-primary; /* 최신 브라우저 */
     cursor: pointer;
   }
@@ -117,7 +117,7 @@ select {
 .input-group {
   display: flex;
   align-items: stretch;
-  gap: 0.8rem;
+  gap: $spacing-xs;
   .input,
   select {
     flex: 1;

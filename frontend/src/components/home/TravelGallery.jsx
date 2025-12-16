@@ -1,41 +1,28 @@
 import React from "react";
 import "../../styles/components/home/TravelGallery.scss";
+import { Link } from "react-router-dom";
 
-const TravelGallery = () => {
- const galleryImages = [
-  {
-   id: 1,
-   image: "/images/travel-1.jpg",
-   className: "travel-image-1",
-  },
-  {
-   id: 2,
-   image: "/images/travel-2.jpg",
-   className: "travel-image-2",
-  },
-  {
-   id: 3,
-   image: "/images/travel-3.jpg",
-   className: "travel-image-3",
-  },
-  {
-   id: 4,
-   image: "/images/travel-4.jpg",
-   className: "travel-image-4",
-  },
- ];
+const TravelGallery = ({ hotels }) => {
+//  console.log(hotels);
+
+ // 2번째부터 5번째 항목까지만 표시 (인덱스 1~4)
+ const displayHotels = hotels.slice(1, 5);
 
  return (
   <div className="travel-gallery">
    <div className="gallery-grid">
-    {galleryImages.map((item) => (
-     <div
-      key={item.id}
-      className={`gallery-item ${item.className}`}
-      style={{ backgroundImage: `url(${item.image})` }}
+    {displayHotels.map((item,i) => (
+     <Link
+      key={i}
+      to={`/hotels/${item._id || item.id}`}
+      className={`gallery-item ${item.className || ""}`}
+      style={{ backgroundImage: `url(${item.images?.[0] || ""})` }}
      >
-      <div className="gallery-overlay"></div>
-     </div>
+      <div className="gallery-overlay">
+       <h4>{item.name}</h4>
+       <p>{item.city}</p>
+      </div>
+     </Link>
     ))}
    </div>
   </div>

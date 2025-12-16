@@ -9,56 +9,193 @@
   width: 100%;
   // padding: 0 $gutter;
 }
+
 .top-container {
-  padding-top: $header-height;
+  // padding-top: $header-height;
 }
+
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-weight: 600;
+  font-weight: $font-weight-semibold;
   line-height: 1.2;
 }
+
 .text-muted {
   color: $color-muted;
 }
+
 h1 {
-  font-size: 4.5rem;
+  font-size: $font-size-5xl;
 }
+
 h2 {
-  font-size: 3.2rem;
+  font-size: $font-size-3xl;
 }
+
 h3 {
-    font-size: 2.4rem;
+  font-size: $font-size-2xl;
+}
+
+.logo {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-light;
+
+  &::before {
+    content: "🏨";
+    margin-right: $spacing-sm;
   }
+}
 .btn-primary {
   background: $color-primary;
-  color: #fff;
-  border-radius: 0.8rem;
-  padding: 1rem 1.6rem;
-  font-weight: 600;
+  color: $color-text-light;
+  border-radius: $border-radius-sm;
+  padding: $spacing-sm $spacing-md;
+  font-weight: $font-weight-semibold;
   @include shadow-soft;
 
   &:hover {
     background: color.scale($color-primary, $lightness: -8%); // ✅ 안정 버전
   }
-
 }
-header {
-  height: $header-height;
-  background: $color-bg;
-  border-bottom: $border;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
 
-  .inner {
-    // @include flex-center-space-between;
-    height: 100%;
-    max-width: $max-width-container;
-    margin: 0 auto;
+// header styles
+section {
+  header {
+    height: $header-height;
+    backdrop-filter: blur(10rem);
+    background-color: rgba(212, 212, 212, 0.44);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    @media screen and (max-width: $breakpoint-md) {
+      padding: 0 $gutter-sm;
+      height: $header-height-mobile;
+
+    }
+
+    .inner {
+      // @include flex-center-space-between;
+      height: 100%;
+      max-width: $max-width-container;
+      margin: 0 auto;
+      border-bottom: $border-light;
+
+      .tit {
+        h2 {
+          font-size: clamp($font-size-xl, $font-size-2xl, $font-size-5xl);
+        }
+
+        p {
+          font-size: clamp(1rem, 1.5vw, 2rem);
+        }
+      }
+    }
+  }
+
+  &.main-layout { 
+    header {
+      background-color: transparent;
+      backdrop-filter: none;
+      border-bottom-color: transparent;
+
+      &.scrolled {
+        background-color: hsla(0, 0%, 42%, 0.2);
+        box-shadow: $shadow-md;
+        backdrop-filter: blur(3rem);
+      }
+    }
+  }
+
+  &.mypage-layout,
+  &.booking-layout,
+  &.hotelpage-layout,
+  &.support-layout,
+  &.search-layout {
+    padding: $gutter-lg 0;
+    background-color: $color-bg;
+    .inner {
+      border-bottom-color: $color-border;
+
+      h1.logo a {
+        color: $color-text;
+      }
+  .btn--sm,
+      .user-menu .user-button .user-name {
+        color: $color-text;
+      }
+
+      .btn-wishlist {
+        color: $color-text;
+      }
+
+
+    }
+
+    &.search-layout {
+      .inner {
+        border-bottom-color: transparent;
+      }
+    }
+
+    &.scrolled {
+      border-bottom-color: transparent;
+    }
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-lg;
+
+    h2 {
+      font-size: $font-size-4xl;
+      display: inline-block;
+      font-weight: 200;
+      margin-bottom: $spacing-xs;
+      position: relative;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: -2rem;
+        right: -2rem;
+        width: 2rem;
+        height: 2rem;
+        background: $color-primary;
+        border-radius: $border-radius-sm;
+      }
+    }
+
+    p {
+      font-size: $font-size-sm;
+      color: $color-muted;
+    }
+
+    @media screen and (max-width: $breakpoint-md) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+      h2 {
+        font-size: $font-size-3xl;
+        &:after{
+          width: 1.5rem;
+          height: 1.5rem;
+          top: -1.5rem;
+          right: -1.5rem;
+        }
+      }
+      p {
+        display: none;
+      }
+
+    }
   }
 }

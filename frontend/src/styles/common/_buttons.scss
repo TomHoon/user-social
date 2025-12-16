@@ -7,16 +7,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.8rem;
-  padding: 1rem 1.6rem;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
   border-radius: $border-radius-sm;
   border: 0.1rem solid transparent;
   background: $color-bg;
   color: $color-secondary;
-  font-weight: 600;
+  font-weight: $font-weight-semibold;
   line-height: 1;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  font-size: $font-size-base;
   @include shadow-soft;
 
   &:hover {
@@ -38,14 +39,17 @@
     height: 1.1em;
     flex: 0 0 auto;
   }
+  @media screen and (max-width:$breakpoint-md) {
+    font-size: $font-size-sm;
+  }
 }
 
 /* 색상 변형 */
 .btn--primary {
   background: $color-primary;
-  color: #fff;
+  color: $color-text-light;
   border-color: $color-primary;
-      border-radius: $border-radius-sm;
+  border-radius: $border-radius-sm;
 
   &:hover {
     background: color.scale($color-primary, $lightness: -6%); /* ✅ 변경 */
@@ -54,21 +58,22 @@
 }
 
 .btn--secondary {
-      border-radius: $border-radius-sm;
+  background: $color-success-light;
+  color: $color-text-light;
+  border-color: $color-success-light;
+  border-radius: $border-radius-sm;
 
-  background: $color-bg;
-  color: $color-secondary;
-  border-color: $color-border;
   &:hover {
-    background: $color-bg-alt;
+    background: color.scale($color-success-light, $lightness: -6%); /* ✅ 변경 */
+    border-color: color.scale($color-success-light, $lightness: -6%); /* ✅ 변경 */
   }
 }
 
 .btn--accent {
-      border-radius: $border-radius-sm;
+  border-radius: $border-radius-sm;
 
   background: $color-accent;
-  color: #fff;
+  color: $color-text-light;
   border-color: $color-accent;
 
   &:hover {
@@ -76,18 +81,19 @@
   }
 }
 
- .btn--social {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid #ddd;
-    background-color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
- }
+.btn--social {
+  width: 5rem;
+  height: 5rem;
+  border-radius: $border-radius-full;
+  border: 0.1rem solid $color-border;
+  background-color: $color-text-light;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  font-size: $font-size-xl;
+}
 /* 스타일 변형 */
 .btn--outline {
   background: transparent;
@@ -111,13 +117,16 @@
 
 /* 크기/유틸 */
 .btn--sm {
-  padding: 0.7rem 1.2rem;
-  border-radius: 0.8rem;
-  font-size: 1.4rem;
+  padding: $spacing-xxs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-button;
+    @media screen and (max-width:$breakpoint-md) {
+    font-size: $font-size-sm;
+  }
 }
 .btn--lg {
-  padding: 1.2rem 1.8rem;
-  font-size: 1.6rem;
+  padding: $spacing-sm $spacing-lg;
+  font-size: $font-size-lg;
   width: 100%;
 }
 .btn--block {
@@ -133,12 +142,17 @@
     text-decoration: underline;
   }
 }
-.btn--blur{
+.btn--blur {
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.2);
   min-width: 40rem;
-  font-size: 2rem;
-  border-radius: $border-radius-lg;
-  font-weight: 300;
-  padding: 1.5rem 3rem;
+  font-size: $font-size-2xl;
+  border-radius: $border-radius-xl;
+  font-weight: $font-weight-normal;
+  padding: $spacing-md $spacing-xxl;
+  color: $color-bg-light;
+  box-shadow: $shadow-sm;
+}
+.btn--rounded {
+  border-radius: $border-radius-full;
 }

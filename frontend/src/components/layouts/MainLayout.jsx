@@ -4,15 +4,15 @@ import Footer from "../common/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="main-layout">
-      <Header />
+    <section className="main-layout">
+      <Header  />
 
       <main>
         <Outlet />
       </main>
 
       <Footer />
-    </div>
+    </section>
   );
 };
 

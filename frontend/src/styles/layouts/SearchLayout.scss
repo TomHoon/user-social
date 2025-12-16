@@ -1,26 +1,57 @@
 @use "../common/variables" as *;
 
-.search-container {
- min-height: 100vh;
- display: flex;
- flex-direction: column;
- background: $color-bg-alt;
- margin-top: $header-height;
- padding-top: $spacing-lg;
 
-.search-content{
+.search-container {
+    min-height: 100vh;
     display: flex;
-    margin-top: $spacing-lg;
-    gap: $spacing-lg;
-    .filter-sidebar{
-    flex: 1;
+    flex-direction: column;
+    background: $color-bg-alt;
+    margin-top: $header-height;
+    padding-top: $spacing-lg;
+
+    .search-content {
+        display: flex;
+        margin-top: $spacing-lg;
+        gap: $spacing-lg;
+
+        .filter-sidebar {
+            flex: 1;
+        }
+        .search-main {
+            flex: 3;
+        }
     }
-    .search-main {
-        flex:3
+
+    .search-form {
+        transform: translateY(0);
+    }
+
+    // 태블릿 이하에서 사이드바를 위로, 메인 아래로 배치
+    @media screen and (max-width: $breakpoint-md) {
+        padding:$spacing-sm;
+        .search-content {
+            flex-direction: column;
+            gap: $spacing-md;
+            .filter-sidebar, .search-main {
+                flex: unset;
+                width: 100%;
+            }
+        }
+        padding-top: $spacing-md;
+            .search-form.inner {
+                padding: $spacing-sm;
+
+            }
+    }
+
+    // 모바일에서 패딩, 마진, gap 축소
+    @media screen and (max-width: $breakpoint-xs) {
+        margin-top: $header-height-mobile;
+        // padding-top: $spacing-sm;
+        .search-content {
+            gap: $spacing-sm;
+            // margin-top: $spacing-sm;
+        }
     }
 }
- .search-form{
-    transform: translateY(0);
- }
- }
 

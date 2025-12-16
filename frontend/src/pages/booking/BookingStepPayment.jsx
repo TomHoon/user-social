@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import "../../styles/components/booking/BookingStepPayment.scss";
 import PaymentContent from "../../components/payment/PaymentContent";
+import { createReservation } from "../../api/reservationClient";
+import { getHotelDetail } from "../../api/hotelClient";
+import { getRoomDetail } from "../../api/roomClient";
 const BookingStepPayment = () => {
  const { hotelId } = useParams();
  const navigate = useNavigate();
@@ -35,33 +38,47 @@ const BookingStepPayment = () => {
  const [room, setRoom] = useState(null);
  const [formData, setFormData] = useState({
   saveCard: false,
+  terms: false,
  });
 
  useEffect(() => {
-  // TODO: API에서 호텔 및 객실 정보 가져오기
-  setHotel({
-   _id: hotelId,
-   name: "그랜드 호텔 서울",
-   address: "서울시 중구 소공로 100",
-   image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400",
-  });
+  const fetchData = async () => {
+   try {
+    // 호텔 정보 가져오기
+    const hotelData = await getHotelDetail(hotelId);
+    setHotel(hotelData);
 
-  const roomId = searchParams.get("roomId");
-  // TODO: roomId로 객실 정보 가져오기
-  setRoom({
-   _id: roomId,
-   name: "Deluxe Room",
-   size: "35㎡",
-   bedType: "King Bed",
-   price: 180000,
-   amenities: ["WiFi", "에어컨", "TV", "냉장고", "욕조"],
-  });
+    // 객실 정보 가져오기
+    const roomId = searchParams.get("roomId");
+    console.log("Room ID from URL:", roomId);
+
+    if (roomId && roomId !== "undefined" && roomId !== "null") {
+     const roomData = await getRoomDetail(roomId);
+     setRoom(roomData);
+    } else {
+     console.warn("roomId가 없습니다. 객실 선택 페이지로 이동하세요.");
+    }
+   } catch (error) {
+    console.error("Failed to fetch data:", error);
+    // 에러 발생 시 기본 데이터 사용
+    setHotel({
+     _id: hotelId,
+     name: "호텔 정보 로딩 실패",
+     address: "-",
+     image:
+      "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400",
+    });
+   }
+  };
+
+  fetchData();
  }, [hotelId, searchParams]);
 
  const checkIn = searchParams.get("checkIn");
  const checkOut = searchParams.get("checkOut");
  const adults = searchParams.get("adults") || 2;
  const children = searchParams.get("children") || 0;
+ const select = searchParams.get("select");
 
  const calculateNights = () => {
   if (!checkIn || !checkOut) return 0;
@@ -83,27 +100,56 @@ const BookingStepPayment = () => {
   }));
  };
 
- const handleSubmit = () => {
-  // 카드 선택 확인
+ const handleSubmit = async () => {
   if (cards.length === 0) {
    alert("결제 수단을 추가해주세요.");
    return;
   }
+  // 약관 동의 확인
+  if (!formData.terms) {
+   alert("이용약관 및 개인정보처리방침에 동의해주세요.");
+   return;
+  }
 
-  // TODO: 결제 API 호출
-  console.log("Payment data:", {
-   hotelId,
-   roomId: searchParams.get("roomId"),
-   checkIn,
-   checkOut,
-   adults,
-   children,
-   selectedCard: cards[0],
-   totalPrice: finalTotal,
-  });
+  try {
+   const roomId = searchParams.get("roomId");
 
-  // 성공 후 완료 페이지로 이동
-  navigate(`/booking/${hotelId}/complete?${searchParams.toString()}`);
+   // roomId 유효성 확인
+   if (!roomId) {
+    alert("객실 정보가 없습니다. 다시 시도해주세요.");
+    return;
+   }
+
+   // 예약 데이터 생성 (백엔드 모델 스키마: roomId, hotelId, checkIn, checkOut, guests, totalPrice 필요)
+   const reservationData = {
+    roomId: roomId,
+    hotelId: hotelId,
+    checkIn: new Date(checkIn).toISOString(),
+    checkOut: new Date(checkOut).toISOString(),
+    guests: parseInt(adults) + parseInt(children),
+    totalPrice: finalTotal,
+   };
+
+   console.log("Creating reservation:", reservationData);
+
+   // 예약 생성 API 호출
+   const response = await createReservation(reservationData);
+
+   console.log("Reservation created:", response);
+
+   // 성공 후 완료 페이지로 이동
+   navigate(
+    `/booking/${hotelId}/complete?${searchParams.toString()}&reservationId=${
+     response.data._id
+    }`
+   );
+  } catch (error) {
+   console.error("Reservation error:", error);
+   alert(
+    error.response?.data?.message ||
+     "예약 생성에 실패했습니다. 다시 시도해주세요."
+   );
+  }
  };
 
  const formatPrice = (price) => {
@@ -133,6 +179,7 @@ const BookingStepPayment = () => {
         type="checkbox"
         id="saveCard"
         name="saveCard"
+        required
         checked={formData.saveCard}
         onChange={handleInputChange}
        />
@@ -141,7 +188,14 @@ const BookingStepPayment = () => {
        </label>
       </div>
       <div className="term-item">
-       <input type="checkbox" id="terms" required />
+       <input
+        type="checkbox"
+        id="terms"
+        name="terms"
+        required
+        checked={formData.terms}
+        onChange={handleInputChange}
+       />
        <label htmlFor="terms">
         <div className="term-title">
          이용약관 및 개인정보처리방침에 동의합니다

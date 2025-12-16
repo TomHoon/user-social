@@ -7,97 +7,98 @@ import HotelGallery from "../../components/hotelpage/HotelGallery";
 import HotelMap from "../../components/hotelpage/HotelMap";
 import HotelOverview from "../../components/hotelpage/HotelOverview";
 import HotelReviews from "../../components/hotelpage/HotelReviews";
-import "../../styles/pages/hotelpage/HotelDetailPage.scss";
 import {
-  getHotels,
-  getHotelDetail,
-  getHotelRooms,
+ getHotels,
+ getHotelDetail,
+ getHotelRooms,
 } from "../../api/hotelClient";
 import {
-  getReviews,
-  createReview,
-  updateReview,
-  deleteReview,
+ getReviews,
+ createReview,
+ updateReview,
+ deleteReview,
 } from "../../api/reviewClient";
+import { useFavorites } from "../../context/FavoritesContext";
 const HotelDetailPage = () => {
-  const { hotelId } = useParams(); // URL에서 호텔 ID 추출
-  const [hotel, setHotel] = useState(null);
-  const [rooms, setRooms] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [reviews, setReviews] = useState([]);
+ const { hotelId } = useParams(); // URL에서 호텔 ID 추출
+ const [hotel, setHotel] = useState(null);
+ const [rooms, setRooms] = useState([]);
+ const [loading, setLoading] = useState(true);
+ const [error, setError] = useState(null);
+ const [reviews, setReviews] = useState([]);
+ const { toggleFavorite, favoriteHotelIds } = useFavorites();
 
-  useEffect(() => {
-    const fetchHotelData = async () => {
-      try {
-        setLoading(true);
-        // 호텔 상세 정보와 객실 정보를 병렬로 가져오기
-        const [hotelData, roomsData, reviewsData] = await Promise.all([
-          getHotelDetail(hotelId),
-          getHotelRooms(hotelId),
-          getReviews(hotelId),
-        ]);
-        setHotel(hotelData.hotel);
-        setRooms(roomsData);
-        setReviews(reviewsData);
-      } catch (err) {
-        setError(err.message);
-        console.error("Failed to fetch hotel data:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
 
-    if (hotelId) {
-      fetchHotelData();
-    }
-  }, [hotelId]);
+ useEffect(() => {
+  const fetchHotelData = async () => {
+   try {
+    setLoading(true);
+    // 호텔 상세 정보와 객실 정보를 병렬로 가져오기
+    const [hotelData, roomsData, reviewsData] = await Promise.all([
+     getHotelDetail(hotelId),
+     getHotelRooms(hotelId),
+     getReviews(hotelId),
+    ]);
+    setHotel(hotelData.hotel);
+    setRooms(roomsData);
+    setReviews(reviewsData);
+   } catch (err) {
+    setError(err.message);
+    console.error("Failed to fetch hotel data:", err);
+   } finally {
+    setLoading(false);
+   }
+  };
 
-  if (loading) {
-    return (
-      <div className="hotel-detail-container inner loading">Loading...</div>
-    );
+  if (hotelId) {
+   fetchHotelData();
   }
+ }, [hotelId]);
 
-  if (error) {
-    return (
-      <div className="hotel-detail-container inner error">Error: {error}</div>
-    );
-  }
+ if (loading) {
+  return <div className="hotel-detail-container inner loading">Loading...</div>;
+ }
 
-  if (!hotel) {
-    return (
-      <div className="hotel-detail-container inner">
-        호텔을 찾을 수 없습니다.
-      </div>
-    );
-  }
-
+ if (error) {
   return (
-    <div className="hotel-detail-container inner">
-      <HotelDetailHeader hotel={hotel} />
-      <HotelGallery images={hotel.images} hotelName={hotel.name} />
-      <HotelOverview
-        description={hotel.description}
-        rating={hotel.ratingAverage}
-        reviewCount={hotel.ratingCount}
-        tags={hotel.tags}
-      />
-      <Amenities amenities={hotel.amenities} />
-      <AvailableRooms rooms={rooms} />
-      <HotelMap address={hotel.address} location={hotel.location} />
-      <HotelReviews
-        hotelId={hotelId}
-        rating={hotel.ratingAverage}
-        reviewCount={hotel.ratingCount}
-        createReview={createReview}
-        updateReview={updateReview}
-        deleteReview={deleteReview}
-        reviews={reviews}
-        getReviews={getReviews}
-      />
-    </div>
+   <div className="hotel-detail-container inner error">Error: {error}</div>
   );
+ }
+
+ if (!hotel) {
+  return (
+   <div className="hotel-detail-container inner">호텔을 찾을 수 없습니다.</div>
+  );
+ }
+
+ return (
+  <div className="hotel-detail-container inner">
+   <HotelDetailHeader hotel={hotel} 
+   toggleFavorite={toggleFavorite}
+   favoriteHotelIds={favoriteHotelIds}
+   />
+   <HotelGallery hotelImages={hotel.images} hotelName={hotel.name} />
+   <HotelOverview
+    description={hotel.description}
+    rating={hotel.ratingAverage}
+    reviewCount={hotel.ratingCount}
+    tags={hotel.tags}
+   />
+   <Amenities amenities={hotel.amenities} />
+   <AvailableRooms rooms={rooms} hotelId={hotel._id || hotel.id} />
+   <HotelMap address={hotel.address} location={hotel.location} />
+   <HotelReviews
+    hotelId={hotelId}
+    rating={hotel.ratingAverage}
+    reviewCount={hotel.ratingCount}
+    createReview={createReview}
+    updateReview={updateReview}
+    deleteReview={deleteReview}
+    reviews={reviews}
+    getReviews={getReviews}
+   />
+  </div>
+ );
 };
 
 export default HotelDetailPage;

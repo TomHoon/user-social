@@ -17,6 +17,7 @@
   min-height: 100vh;
 
   @media (max-width: $breakpoint-md) {
+    padding:0 $spacing-md;
    flex-direction: column;
 
    .auth-layout-image-section {
@@ -31,7 +32,7 @@
   align-items: center;
   justify-content: center;
   // padding: $spacing-xxxl $spacing-lg;
-  background: $color-bg;
+//   background: $color-bg;
  }
 
  .auth-layout-image-section {
@@ -39,6 +40,14 @@
   position: relative;
   overflow: hidden;
   background: $gradient-gray-medium;
+  .login-image-section{
+      height: 100%;
+      .swiper {
+          
+          height: 100%;
+      }
+
+  }
 
   .auth-layout-image-wrapper {
    width: 100%;
@@ -199,8 +208,11 @@
    text-align: center;
    margin: $spacing-xl 0;
    position: relative;
-
+   background-color: $color-bg;
+   z-index: 1;
+   
    &::before {
+       z-index: 0;
     content: "";
     position: absolute;
     top: 50%;
@@ -210,12 +222,7 @@
     background: $color-border;
    }
 
-   .divider-text {
-    background: $color-bg;
-    padding: 0 $spacing-md;
-    font-size: $font-size-sm;
-    color: $color-text-muted;
-   }
+
   }
 
   .social-login {

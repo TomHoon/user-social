@@ -22,7 +22,7 @@ const Newsletter = () => {
         placeholder="Your email address"
         className="email-input"
        />
-       <button className="subscribe-btn">Subscribe</button>
+       <button className="subscribe-btn btn">Subscribe</button>
       </div>
      </div>
 

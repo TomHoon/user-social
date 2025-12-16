@@ -16,15 +16,14 @@ const HeroCard = ({
     backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${backgroundImage})`,
    }}
   >
-   <div className="hero-card-container">
-    <div className="hero-content">
-     <h1 className="hero-title">{title}</h1>
-     <h2 className="hero-subtitle">{subtitle}</h2>
-     <p className="hero-description">{description}</p>
+   <div className="inner">
+    <div className="hero-card-container">
+     <div className="hero-content">
+      <h2>{title}</h2>
+      <p className="hero-subtitle">{subtitle}</p>
+      <p className="hero-description">{description}</p>
+     </div>
     </div>
-
-
-    
    </div>
   </div>
  );

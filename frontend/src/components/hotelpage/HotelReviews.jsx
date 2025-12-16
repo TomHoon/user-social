@@ -17,11 +17,11 @@ const HotelReviews = ({
  reviews = [],
  getReviews,
 }) => {
- console.log("HotelReviews reviews:", reviews);
+//  console.log("HotelReviews reviews:", reviews);
  return (
   <div className="hotel-reviews">
    <div className="dep">
-    <h3>리뷰 ({reviewCount})</h3>
+    <h2>리뷰 ({reviewCount})</h2>
     <button className="btn btn--primary">리뷰 작성</button>
    </div>
    <div className="dep">

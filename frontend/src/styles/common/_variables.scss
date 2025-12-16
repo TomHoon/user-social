@@ -1,38 +1,102 @@
+
+// Breakpoints
+$breakpoint-xs: 480px;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
 @use "sass:color";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
 // Primary colors
 $color-primary: #2563eb;
-$color-secondary: #1e293b;
+$color-primary-light: #60a5fa;
+$color-primary-dark: #1e40af;
+$color-secondary: #2e1e3b;
 $color-accent: #f97316;
+$color-accent-light: #fb923c;
 $color-bg: #ffffff;
 $color-bg-alt: #f9fafb;
 $color-border: #e5e7eb;
 $color-muted: #9ca3af;
 
+// Status colors
+$color-success: #10b981;
+$color-success-light: #34d399;
+$color-success-dark: #059669;
+$color-warning: #f59e0b;
+$color-warning-light: #fbbf24;
+$color-error: #ef4444;
+$color-error-light: #f87171;
+$color-info: #3b82f6;
+
 // Text colors
 $color-text: #1f2937;
 $color-text-secondary: #6b7280;
 $color-text-muted: #9ca3af;
+$color-text-light: #ffffff;
 
 // Background colors
 $color-bg-light: #f9fafb;
 $color-bg-dark: #1f2937;
+$color-bg-hover: #f3f4f6;
+$color-bg-overlay: rgba(0, 0, 0, 0.5);
 
 // Border colors
 $color-border-light: #f3f4f6;
 $color-border-dark: #374151;
 
+// Hotel specific colors
+$color-luxury: #8b5cf6; // 럭셔리 호텔용 보라색
+$color-luxury-light: #a78bfa;
+$color-ocean: #0ea5e9; // 오션뷰용 하늘색
+$color-ocean-light: #38bdf8;
+$color-premium: #f59e0b; // 프리미엄용 골드
+$color-premium-light: #fbbf24;
+
+// Typography
 $font-family-base: "Inter", "Noto Sans KR", sans-serif;
-$font-size-base: 1.6rem;
+
+// Base font sizes
+$font-size-xs: 1.2rem;
 $font-size-sm: 1.4rem;
+$font-size-base: 1.6rem;
 $font-size-lg: 1.8rem;
 $font-size-xl: 2rem;
+$font-size-2xl: 2.4rem;
+$font-size-3xl: 3rem;
+$font-size-4xl: 3.6rem;
+$font-size-5xl: 4.8rem;
+$font-size-6xl: 6rem;
+
+// Section specific font sizes
+$font-size-section-title: 3.6rem; // 섹션 메인 제목
+$font-size-section-subtitle: 2.4rem; // 섹션 서브 제목
+$font-size-section-description: 1.6rem; // 섹션 설명
+$font-size-card-title: 2rem; // 카드 제목
+$font-size-card-subtitle: 1.6rem; // 카드 서브타이틀
+$font-size-card-description: 1.4rem; // 카드 설명
+$font-size-button: 1.6rem; // 버튼 텍스트
+$font-size-label: 1.4rem; // 레이블
+$font-size-caption: 1.2rem; // 캡션/작은 텍스트
+
+// Line heights
 $line-height-base: 1.5;
 $line-height-tight: 1.2;
 $line-height-relaxed: 1.75;
+$line-height-loose: 2;
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
 
 // Spacing tokens
+$spacing-xxs: 0.4rem;
 $spacing-xs: 0.8rem;
 $spacing-sm: 1.2rem;
 $spacing-md: 1.6rem;
@@ -42,36 +106,49 @@ $spacing-xxl: 3rem;
 $spacing-xxxl: 4rem;
 $spacing-section: 10rem;
 
-$breakpoint-md: 76.8rem;
-$max-width-container: 128rem;
+$breakpoint-md: 768px;
+$breakpoint-lg: 999px;
+$max-width-container: 1280px;
 $gutter-sm: 1rem;
 $gutter-md: 1.6rem;
 $gutter-lg: 2rem;
 
-
 // Border styles
 $border: 0.1rem solid $color-border;
-$border-light: 0.1rem solid rgba($color-border, 0.5);
+$border-light: 0.1rem solid rgba($color-border, 0.2);
 $border-dark: 0.1rem solid color.adjust($color-border, $lightness: -10%);
 
 $border-radius-sm: 0.4rem;
 $border-radius-md: 0.8rem;
 $border-radius-lg: 1.2rem;
+$border-radius-xl: 6rem;
 $border-radius-full: 999.9rem;
 
 // Shadow styles
 $shadow-sm: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.05);
 $shadow-md: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
- 0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
+  0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
 $shadow-lg: 0 1rem 1.5rem -0.3rem rgba(0, 0, 0, 0.1),
- 0 0.4rem 0.6rem -0.2rem rgba(0, 0, 0, 0.05);
+  0 0.4rem 0.6rem -0.2rem rgba(0, 0, 0, 0.05);
 $shadow-xl: 0 2rem 2.5rem -0.5rem rgba(0, 0, 0, 0.1),
- 0 1rem 1rem -0.5rem rgba(0, 0, 0, 0.04);
+  0 1rem 1rem -0.5rem rgba(0, 0, 0, 0.04);
 $shadow-2xl: 0 2.5rem 5rem -1.2rem rgba(0, 0, 0, 0.25);
 
 // Gradient styles
 $gradient-gray-light: linear-gradient(135deg, #f9fafb, #f3f4f6);
 $gradient-gray-medium: linear-gradient(135deg, #3b82f6, #1d4ed8);
 $gradient-gray-dark: linear-gradient(135deg, #1e40af, #1e3a8a);
+$gradient-primary: linear-gradient(135deg, #3b82f6, #2563eb);
+$gradient-luxury: linear-gradient(135deg, #a78bfa, #8b5cf6);
+$gradient-ocean: linear-gradient(135deg, #38bdf8, #0ea5e9);
+$gradient-premium: linear-gradient(135deg, #fbbf24, #f59e0b);
+$gradient-sunset: linear-gradient(135deg, #fb923c, #f97316);
+$gradient-success: linear-gradient(135deg, #34d399, #10b981);
+$gradient-overlay-dark: linear-gradient(
+  180deg,
+  rgba(0, 0, 0, 0) 0%,
+  rgba(0, 0, 0, 0.7) 100%
+);
 
 $header-height: 8rem;
+$header-height-mobile: 6rem;
