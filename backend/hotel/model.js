@@ -53,5 +53,5 @@ hotelSchema.set("toJSON", {
  },
 });
 
-export const Hotel = mongoose.model("Hotel", hotelSchema);
+export const Hotel = mongoose.model("Hotel", hotelSchema,"hotels");
 export default Hotel;
