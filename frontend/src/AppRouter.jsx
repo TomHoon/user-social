@@ -145,7 +145,7 @@ const AppRouter = () => {
               <Route path="add-payment" element={<AddPaymentPage />} />
 
               {/* 소셜 로그인 콜백 (카카오, 구글) */}
-              <Route path="oauth">
+              <Route path="auth">
                 <Route path="kakao/callback" element={<KakaoCallbackPage />} />
                 <Route
                   path="google/callback"

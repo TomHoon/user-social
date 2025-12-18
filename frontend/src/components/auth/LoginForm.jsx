@@ -45,8 +45,8 @@ const LoginForm = () => {
    // 로그인 성공
    if (response) {
     login(response);
-    // 마이페이지로 이동
-    navigate("/mypage");
+    // 홈으로 이동
+    navigate("/");
    }
   } catch (err) {
    // 로그인 실패

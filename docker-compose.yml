@@ -1,0 +1,35 @@
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: hotel-hub-db
+    restart: always
+    volumes:
+      - mongodb_data:/data/db
+    # 외부 접속이 필요하면 아래 주석을 해제하세요.
+    # ports:
+    #   - "27017:27017"
+
+  backend:
+    image: lizb0523/hotel-hub-back:1.2
+    container_name: hotel-hub-backend
+    restart: always
+    depends_on:
+      - mongodb
+    # ✅ .env 파일을 읽어오기 위해 반드시 env_file 키워드가 필요합니다.
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+
+  frontend:
+    image: lizb0523/hotel-hub-front:1.2
+    container_name: hotel-hub-frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+
+volumes:
+  mongodb_data:
