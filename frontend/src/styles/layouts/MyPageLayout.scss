@@ -7,6 +7,7 @@
  padding-top: $spacing-xl;
  margin-top: $header-height;
  padding-top: $spacing-lg;
+
  .hero {
   width: 100%;
   padding: $spacing-xxxl 0;
@@ -20,6 +21,7 @@
   color: $color-primary;
   margin-bottom: 2rem;
  }
+
  .mypage-container {
     padding-top: 10rem;
   .mypage-nav {
@@ -29,6 +31,9 @@
    border: $border;
    background: $color-bg-light;
    margin-bottom: $spacing-lg;
+   @media screen and (max-width:$breakpoint-xl) {
+    margin-top: $spacing-xxxxl;
+   }
 
    // flex: 1;
 
